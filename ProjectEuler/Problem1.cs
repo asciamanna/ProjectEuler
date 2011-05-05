@@ -11,7 +11,7 @@ namespace ProjectEuler {
       this.belowNumber = belowNumber;
     }
 
-    public int Solve() {
+    public void Solve() {
       //find the sum of all of the multiples of 3 or 5 below 1000;
       //answer: 233168
 
@@ -22,7 +22,6 @@ namespace ProjectEuler {
       }
 
       WriteAnswerToConsole(string.Format("The sum of all of the multiples of 3 or 5 below {0} is: {1}", belowNumber, sum));
-      return sum;
     }
 
     static bool IsMultipleOf(int number, int multipleOf) {
