@@ -1,0 +1,5 @@
+C:\Users\anthony\Documents\Visual Studio 2008\Projects\ProjectEuler\ProjectEuler\bin\Debug\ProjectEuler.exe
+C:\Users\anthony\Documents\Visual Studio 2008\Projects\ProjectEuler\ProjectEuler\bin\Debug\ProjectEuler.pdb
+C:\Users\anthony\Documents\Visual Studio 2008\Projects\ProjectEuler\ProjectEuler\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\anthony\Documents\Visual Studio 2008\Projects\ProjectEuler\ProjectEuler\obj\Debug\ProjectEuler.exe
+C:\Users\anthony\Documents\Visual Studio 2008\Projects\ProjectEuler\ProjectEuler\obj\Debug\ProjectEuler.pdb
