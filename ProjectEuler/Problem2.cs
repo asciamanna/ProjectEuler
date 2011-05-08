@@ -7,18 +7,17 @@ namespace ProjectEuler {
     //By considering the terms in the Fibonacci sequence whose values 
     //do not exceed four million, find the sum of the even-valued terms.
     //Answer: 4613732
-    public override void Solve() {
+    public override int Solve() {
       var sequence = GenerateFibonacciSequence(4000000);
-      var answer = CalculateEvenTermsSum(sequence);
-      WriteAnswerToConsole("The sum of the even terms is: " + answer);
+     return CalculateEvenTermsSum(sequence);
     }
 
     List<int> GenerateFibonacciSequence(int limit) {
       if (limit < 2) {
-        return new List<int> {1};
+        return new List<int> { 1 };
       }
 
-      var sequence = new List<int> {1, 2};
+      var sequence = new List<int> { 1, 2 };
       int i = 0;
       int nextValue = 0;
 

@@ -11,17 +11,15 @@ namespace ProjectEuler {
       this.belowNumber = belowNumber;
     }
 
-    public override void Solve() {
+    public override int Solve() {
       //find the sum of all of the multiples of 3 or 5 below 1000;
       //answer: 233168
-
       var sum = 0;
 
       for (int i = belowNumber - 1; i > 0; i--) {
         if (IsMultipleOf(i, 3) || IsMultipleOf(i, 5)) sum += i;
       }
-
-      WriteAnswerToConsole(string.Format("The sum of all of the multiples of 3 or 5 below {0} is: {1}", belowNumber, sum));
+      return sum;
     }
 
     static bool IsMultipleOf(int number, int multipleOf) {
