@@ -15,6 +15,6 @@ namespace ProjectEuler {
       Console.ReadLine();
     }
  
-    public abstract int Solve();
+    public abstract long Solve();
   }
 }

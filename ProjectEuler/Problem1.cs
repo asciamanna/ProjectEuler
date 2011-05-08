@@ -11,7 +11,7 @@ namespace ProjectEuler {
       this.belowNumber = belowNumber;
     }
 
-    public override int Solve() {
+    public override long Solve() {
       //find the sum of all of the multiples of 3 or 5 below 1000;
       //answer: 233168
       var sum = 0;
