@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ProjectEuler {
   public class Problem1 : Problem {
+    //find the sum of all of the multiples of 3 or 5 below 1000;
+    //answer: 233168
+
     readonly int belowNumber;
 
     public Problem1(int belowNumber) {
@@ -12,8 +15,6 @@ namespace ProjectEuler {
     }
 
     public override long Solve() {
-      //find the sum of all of the multiples of 3 or 5 below 1000;
-      //answer: 233168
       var sum = 0;
 
       for (int i = belowNumber - 1; i > 0; i--) {
