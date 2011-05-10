@@ -5,17 +5,21 @@ using System.Text;
 
 namespace ProjectEuler {
   public class Problem4 : Problem {
-    //divisble by 11??
-    //set inner loop to current value of outer loop
-    //only check to smallest x digit number.
-
+    //----------------------------------------------------------------------------
+    //A palindromic number reads the same both ways. The largest palindrome made 
+    //from the product of two 2-digit numbers is 9009 = 91  99.
+    //Find the largest palindrome made from the product of two 3-digit numbers. 
+    //----------------------------------------------------------------------------
+    
+    //TODO: divisble by 11??
+    //TODO: set inner loop to current value of outer loop
+    //TODO: only check to smallest x digit number.
+    
     readonly int numberOfDigits;
     public Problem4(int numberOfDigits) {
       this.numberOfDigits = numberOfDigits;
     }
-    //A palindromic number reads the same both ways. The largest palindrome made 
-    //from the product of two 2-digit numbers is 9009 = 91  99.
-    //Find the largest palindrome made from the product of two 3-digit numbers.
+
 
     public override long Solve() {
       var palindromes = new List<int>();

@@ -5,8 +5,10 @@ using System.Text;
 
 namespace ProjectEuler {
   public class Problem1 : Problem {
+    //----------------------------------------------------------
     //find the sum of all of the multiples of 3 or 5 below 1000;
     //answer: 233168
+    //----------------------------------------------------------
 
     readonly int belowNumber;
 
