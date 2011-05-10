@@ -48,6 +48,7 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PrimeGenerator.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Problem1.cs" />
     <Compile Include="Problem2.cs" />

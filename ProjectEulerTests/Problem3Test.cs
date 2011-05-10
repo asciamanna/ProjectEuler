@@ -15,17 +15,7 @@ namespace ProjectEulerTests {
 
     [Test]
     public void Solve() {
-      //.AreEqual(
-    }
-
-    [Test]
-    public void CalculatePrimes() {
-      var expectedPrimes = new List<long> {
-        2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
-      };
-      var primes = new Problem3(100).CalculatePrimes(100);
-      Assert.AreEqual(expectedPrimes.Count, primes.Count);
-      Assert.AreEqual(expectedPrimes.Count, expectedPrimes.Intersect(primes).Count());
+      Assert.AreEqual(6857, new Problem3(600851475143).Solve());
     }
   }
 }

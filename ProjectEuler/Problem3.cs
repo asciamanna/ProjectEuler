@@ -12,38 +12,17 @@ namespace ProjectEuler {
     //The prime factors of 13195 are 5, 7, 13 and 29.
     //What is the largest prime factor of the number 600851475143 ?
     public override long Solve() {
-      var primeFactors = new List<long>();
+      //start at sqrt of number.
+      var limit = (long)Math.Sqrt(number);
+      long largestPrimeFactor = 0;
 
-      var primes = CalculatePrimes(number);
-      for(int i = primes.Count - 1; i > 0; i--) {
-        var primeCandidate = primes[i];
-        if (number % primeCandidate == 0) return primeCandidate;
-      }
-      return 0;
-    }
-
-    public List<long> CalculatePrimes(long primesBelow) {
-      var primes = new List<long> { 2 };
-
-      for (long i = 3; i <= primesBelow; i += 2) {
-        if (IsPrime(i, primes)) primes.Add(i);
-      }
-      return primes;
-    }
-
-    static bool IsPrime(long num, List<long> primesSoFar) {
-      bool isPrime = true;
-
-      foreach (long prime in primesSoFar) {
-        if ((num % prime) == 0 && prime <= Math.Sqrt(num)) {
-          isPrime = false;
+      for (long i = limit; i > 0; i--) {
+        if (number % i == 0 && PrimeGenerator.IsPrime(i)) {
+          largestPrimeFactor = i;
           break;
         }
       }
-      return isPrime;
+      return largestPrimeFactor;
     }
-
-
-
   }
 }
