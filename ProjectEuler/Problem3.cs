@@ -15,17 +15,17 @@ namespace ProjectEuler {
       var primeFactors = new List<long>();
 
       var primes = CalculatePrimes(number);
+      for(int i = primes.Count - 1; i > 0; i--) {
+        var primeCandidate = primes[i];
+        if (number % primeCandidate == 0) return primeCandidate;
+      }
       return 0;
     }
 
-    bool IsInteger(decimal value) {
-      return value % 1 == 0;
-    }
-
-    public List<long> CalculatePrimes(long num) {
+    public List<long> CalculatePrimes(long primesBelow) {
       var primes = new List<long> { 2 };
 
-      for (long i = 3; i <= num; i += 2) {
+      for (long i = 3; i <= primesBelow; i += 2) {
         if (IsPrime(i, primes)) primes.Add(i);
       }
       return primes;

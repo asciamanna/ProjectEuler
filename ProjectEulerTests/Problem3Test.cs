@@ -10,8 +10,14 @@ namespace ProjectEulerTests {
   public class Problem3Test {
     [Test]
     public void Example() {
-     // Assert.AreEqual(29, new Problem3(13195).Solve());
+      Assert.AreEqual(29, new Problem3(13195).Solve());
     }
+
+    [Test]
+    public void Solve() {
+      //.AreEqual(
+    }
+
     [Test]
     public void CalculatePrimes() {
       var expectedPrimes = new List<long> {
