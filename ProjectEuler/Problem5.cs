@@ -11,6 +11,14 @@ namespace ProjectEuler {
     //What is the smallest positive number that is 
     // evenly divisible by all of the numbers from 1 to 20?
     //-----------------------------------------------
+    //brute force (loop from 1 to max int until the answer is found): 69.172 seconds
+    //NOTES: 
+    //for number to be divisible by 2 and 5 must end in 0.
+    //Try skipping by 10 each time through loop and start at upper limit
+    //With those optimizations: 7.805 seconds
+
+    //next optimization.  skip by the upper limit.
+    //With these optimizations: 4.198 seconds
 
     readonly int lower;
     readonly int upper;
@@ -21,7 +29,7 @@ namespace ProjectEuler {
     }
     public override long Solve() {
       var range = Enumerable.Range(lower, upper - lower + 1);
-      for (int i = 1; i < int.MaxValue; i++) {
+      for (int i = upper ; i < int.MaxValue; i+=upper) {
         if (range.All(rangeNum => i % rangeNum == 0)) return i;
       }
       return 0;
