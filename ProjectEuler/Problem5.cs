@@ -20,6 +20,8 @@ namespace ProjectEuler {
     //next optimization.  skip by the upper limit.
     //With these optimizations: 4.198 seconds
 
+    //TODO: use prime factors to solve...
+
     readonly int lower;
     readonly int upper;
 
