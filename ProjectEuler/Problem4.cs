@@ -12,8 +12,7 @@ namespace ProjectEuler {
     //----------------------------------------------------------------------------
     
     //TODO: divisble by 11??
-    //TODO: set inner loop to current value of outer loop
-    //TODO: only check to smallest x digit number.
+    //DONE: set inner loop to current value of outer loop
     
     readonly int numberOfDigits;
     public Problem4(int numberOfDigits) {
@@ -24,10 +23,11 @@ namespace ProjectEuler {
     public override long Solve() {
       var palindromes = new List<int>();
       var startingNumber = BuildStartingNumber(numberOfDigits);
+      var endingNumber = BuildEndingNumber(numberOfDigits);
       var maxNumber = 0;
 
-      for (int factor1 = startingNumber; factor1 > 0; factor1--) {
-        for (int factor2 = startingNumber; factor2 > 0; factor2--) {
+      for (int factor1 = startingNumber; factor1 > endingNumber; factor1--) {
+        for (int factor2 = startingNumber; factor2 > factor1; factor2--) {
           var product = factor1 * factor2;
           if (IsPalindrome(product)) {
             if (product > maxNumber) maxNumber = product;
@@ -39,6 +39,12 @@ namespace ProjectEuler {
 
     int BuildStartingNumber(int numberOfDigits) {
       var numberString = new String('9', numberOfDigits);
+      return Int32.Parse(numberString);
+    }
+
+    int BuildEndingNumber(int numberOfDigits) {
+      if (numberOfDigits == 1) return 1;
+      var numberString = "1" + new String('0', numberOfDigits - 1);
       return Int32.Parse(numberString);
     }
 
