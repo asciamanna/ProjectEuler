@@ -13,17 +13,25 @@ namespace ProjectEuler {
     //Brute Force: .016 seconds
     //------------------------------
     readonly IEnumerable<int> naturalNumbers;
+    readonly int numberOfNaturalNumbers;
 
     public Problem6(int numberOfNaturalNumbers) {
-      naturalNumbers = Enumerable.Range(1, numberOfNaturalNumbers);
+      this.numberOfNaturalNumbers = numberOfNaturalNumbers;
+      this.naturalNumbers = Enumerable.Range(1, numberOfNaturalNumbers);
     }
 
     public override long Solve() {
-     return SquareOfSum() - SumOfSquares();
+     return SquareOfSumOptimized() - SumOfSquares();
     }
 
     long SquareOfSum() {
       return (long)Math.Pow(naturalNumbers.Sum(), 2);
+    }
+
+    long SquareOfSumOptimized() {
+      //sum(n) = n(n+1)/2
+      var sum = numberOfNaturalNumbers * (numberOfNaturalNumbers + 1) / 2;
+      return (long)Math.Pow(sum, 2);
     }
 
     long SumOfSquares() {
