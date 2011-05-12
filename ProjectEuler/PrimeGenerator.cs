@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ProjectEuler {
   public static class PrimeGenerator {
-    public static List<long> CalculatePrimes(long primesBelow) {
+    public static List<long> CalculatePrimesBelow(long primesBelow) {
       var primes = new List<long> { 2 };
 
       for (long i = 3; i <= primesBelow; i += 2) {
@@ -24,6 +24,19 @@ namespace ProjectEuler {
         }
       }
       return isPrime;
+    }
+
+    public static long CalculateNthPrime(int n) {
+       var primes = new List<long> { 2 };
+       var count = 1;
+
+      for (long i = 3; i <= long.MaxValue && count < n; i += 2) {
+        if (IsPrime(i, primes)) {
+          primes.Add(i);
+          count++;
+        }
+      }
+      return primes.Last();
     }
 
     public static bool IsPrime(long number) {
