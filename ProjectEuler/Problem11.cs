@@ -8,7 +8,7 @@ namespace ProjectEuler {
     //------------------------------------
     //What is the greatest product of four adjacent
     //numbers in any direction (up, down, left, right, 
-    //or diagonally) in the 2020 grid?
+    //or diagonally) in the 20x20 grid?
     //------------------------------------
     const int NUMBER_OF_PRODUCTS = 4;
     const int GRID_SIZE = 20;
