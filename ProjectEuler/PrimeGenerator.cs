@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections;
 
 namespace ProjectEuler {
   public static class PrimeGenerator {
-    public static List<long> CalculatePrimesBelow(long primesBelow) {
+    public static List<long> OldPrimeGenerator(long primesBelow) {
       var primes = new List<long> { 2 };
 
       for (long i = 3; i <= primesBelow; i += 2) {
@@ -24,6 +25,21 @@ namespace ProjectEuler {
         }
       }
       return isPrime;
+    }
+
+    public static IEnumerable<long> CalculatePrimesBelow(int max) {
+      var primeCandidates = new BitArray(max + 1, true);
+      var primes = new List<long> { 2 };
+      for (int i = 3; i < max; i += 2) {
+        if (primeCandidates[i]) {
+          if (i < Math.Sqrt(max)) {
+            for (int j = i * i; j <= max; j += i*2)
+              primeCandidates[j] = false;
+          }
+          primes.Add((long)i);
+        }
+      }
+      return primes;
     }
 
     public static long CalculateNthPrime(int n) {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 namespace ProjectEuler {
   public abstract class Problem {
@@ -11,8 +12,13 @@ namespace ProjectEuler {
       endTime = DateTime.Now;
       WriteAnswer(answer);
       WriteTimeTrackingInfo();
+      WriteToClipboard(answer);
       //Keep console open...
       Console.ReadLine();
+    }
+
+    void WriteToClipboard(long answer) {
+      Clipboard.SetText(answer.ToString());
     }
 
     void WriteTimeTrackingInfo() {

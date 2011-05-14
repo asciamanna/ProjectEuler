@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ProjectEuler {
   class Program {
+    [STAThread] // for OLE
     static void Main(string[] args) {
       //new Problem1(1000).SolveToConsole();
       //new Problem2().SolveToConsole();

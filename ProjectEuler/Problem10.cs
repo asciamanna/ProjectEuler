@@ -9,9 +9,9 @@ namespace ProjectEuler {
     //The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
     //Find the sum of all the primes below two million.
     //--------------------------------
-    readonly long primesBelow;
+    readonly int primesBelow;
 
-    public Problem10(long primesBelow) {
+    public Problem10(int primesBelow) {
       this.primesBelow = primesBelow;
     }
     public override long Solve() {
