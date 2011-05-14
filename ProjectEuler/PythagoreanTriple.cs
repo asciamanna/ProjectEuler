@@ -18,9 +18,10 @@ namespace ProjectEuler {
       if (m >= n) {
         throw new ArgumentException(string.Format("m:{0} must be less than n:{0} to generate a pythagorean triple", m, n));
       }
-      //using formula to generate triple:
+      //using this formula to generate pythagorean triples:
       //n^2 - m^2, 2mn, and n^2 + m^2
       //where m < n
+      //http://www.math.uic.edu/~fields/puzzle/triples.html
       return new PythagoreanTriple((int)(Math.Pow(n, 2) - Math.Pow(m, 2)), 2 * m * n, (int)(Math.Pow(n, 2) + Math.Pow(m, 2)));
     }
   }

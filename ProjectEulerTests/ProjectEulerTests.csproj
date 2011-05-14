@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="PrimeGeneratorTest.cs" />
     <Compile Include="Problem10Test.cs" />
+    <Compile Include="Problem11Test.cs" />
     <Compile Include="Problem2Test.cs" />
     <Compile Include="Problem1Test.cs" />
     <Compile Include="Problem3Test.cs" />

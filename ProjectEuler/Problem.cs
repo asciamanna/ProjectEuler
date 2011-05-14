@@ -12,13 +12,9 @@ namespace ProjectEuler {
       endTime = DateTime.Now;
       WriteAnswer(answer);
       WriteTimeTrackingInfo();
-      WriteToClipboard(answer);
+      Clipboard.SetText(answer.ToString());
       //Keep console open...
       Console.ReadLine();
-    }
-
-    void WriteToClipboard(long answer) {
-      Clipboard.SetText(answer.ToString());
     }
 
     void WriteTimeTrackingInfo() {
