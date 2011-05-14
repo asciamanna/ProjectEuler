@@ -10,8 +10,8 @@ namespace ProjectEuler {
     //numbers in any direction (up, down, left, right, 
     //or diagonally) in the 2020 grid?
     //------------------------------------
-    int NUMBER_OF_PRODUCTS = 4;
-    int GRID_SIZE = 20;
+    const int NUMBER_OF_PRODUCTS = 4;
+    const int GRID_SIZE = 20;
 
     readonly int[,] grid = {
       {08, 02, 22, 97, 38, 15, 00, 40, 00, 75, 04, 05, 07, 78, 52, 12, 50, 77, 91, 08 },
@@ -37,8 +37,8 @@ namespace ProjectEuler {
     };
 
     public override long Solve() {
-      var gridx = 20;
-      var gridy = 20;
+      var gridx = GRID_SIZE;
+      var gridy = GRID_SIZE;
       long greatestProduct = 0;
       for (int x = 0; x < gridx; x++) {
         for (int y = 0; y < gridy; y++) {
