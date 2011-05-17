@@ -15,7 +15,7 @@ namespace ProjectEuler {
       this.primesBelow = primesBelow;
     }
     public override long Solve() {
-      return PrimeGenerator.CalculatePrimesBelow(primesBelow).Sum();
+      return Primes.CalculatePrimesBelow(primesBelow).Sum();
     }
   }
 }

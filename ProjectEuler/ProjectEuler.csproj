@@ -49,12 +49,13 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PrimeGenerator.cs" />
+    <Compile Include="Primes.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Problem1.cs" />
     <Compile Include="Problem10.cs" />
     <Compile Include="Problem11.cs" />
     <Compile Include="Problem12.cs" />
+    <Compile Include="Problem13.cs" />
     <Compile Include="Problem2.cs" />
     <Compile Include="Problem3.cs" />
     <Compile Include="Problem4.cs" />

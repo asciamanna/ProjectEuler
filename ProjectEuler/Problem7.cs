@@ -18,7 +18,7 @@ namespace ProjectEuler {
      this.whichPrime = whichPrime;
    }
    public override long Solve() {
-     return PrimeGenerator.CalculateNthPrime(whichPrime);
+     return Primes.CalculateNthPrime(whichPrime);
    }
  }
 }

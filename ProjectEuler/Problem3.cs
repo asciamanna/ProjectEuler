@@ -21,7 +21,7 @@ namespace ProjectEuler {
       long largestPrimeFactor = 0;
 
       for (long i = limit; i > 0; i--) {
-        if (number % i == 0 && PrimeGenerator.IsPrime(i)) {
+        if (number % i == 0 && Primes.IsPrime(i)) {
           largestPrimeFactor = i;
           break;
         }
