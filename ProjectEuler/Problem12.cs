@@ -13,15 +13,18 @@ namespace ProjectEuler {
     public override long Solve() {
       for (int i = 1; i < int.MaxValue; i++) {
         var triangleNumber = CalculateNthTriangleNumber(i);
-        var numberOfDivisors = CalculateNumberOfDivisors(triangleNumber);
-        if (numberOfDivisors > moreThanNumberOfDivisors) {
+        if (CalculateDivisors(triangleNumber).Count > moreThanNumberOfDivisors) {
           return triangleNumber;
         }
       }
       return 0;
     }
 
-    int CalculateNumberOfDivisors(long triangleNumber) {
+    public static long CalculateNthTriangleNumber(int n) {
+      return Enumerable.Range(1, n).Sum();
+    }
+
+    List<long> CalculateDivisors(long triangleNumber) {
       var divisors = new List<long>();
 
       for (long i = 1; i < (long)Math.Sqrt(triangleNumber); i++) {
@@ -30,7 +33,7 @@ namespace ProjectEuler {
           divisors.Add(triangleNumber / i);
         }
       }
-      return divisors.Count;
+      return divisors;
     }
 
     //int CalculateNumberOfDivisors(long triangleNumber) {
@@ -46,9 +49,5 @@ namespace ProjectEuler {
     //  }
     //  return 0;
     //}
-
-    public static long CalculateNthTriangleNumber(int n) {
-      return Enumerable.Range(1, n).Sum();
-    }
   }
 }

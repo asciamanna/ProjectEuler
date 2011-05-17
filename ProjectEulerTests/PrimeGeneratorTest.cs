@@ -28,8 +28,6 @@ namespace ProjectEulerTests {
       Assert.AreEqual(3, primes.Count);
       Assert.Contains(2, primes);
       Assert.Contains(7, primes);
-      var p2 = PrimeGenerator.CalculatePrimeFactors(60);
-      p2.ToString();
     }
   }
 }
