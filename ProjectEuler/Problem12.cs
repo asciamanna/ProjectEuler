@@ -8,7 +8,7 @@ namespace ProjectEuler {
     readonly int moreThanNumberOfDivisors;
 
     public Problem12(int moreThanNumberOfDivisors) {
-      this.moreThanNumberOfDivisors = moreThanNumberOfDivisors; 
+      this.moreThanNumberOfDivisors = moreThanNumberOfDivisors;
     }
     public override long Solve() {
       for (int i = 1; i < int.MaxValue; i++) {
@@ -21,15 +21,33 @@ namespace ProjectEuler {
       return 0;
     }
 
-     int CalculateNumberOfDivisors(long triangleNumber) {
-       var numberOfDivisors = 0;
-       for (int i = 1; i <= triangleNumber; i++) {
-         if (triangleNumber % i == 0) numberOfDivisors++;
-       }
-       return numberOfDivisors;
+    int CalculateNumberOfDivisors(long triangleNumber) {
+      var divisors = new List<long>();
+
+      for (long i = 1; i < (long)Math.Sqrt(triangleNumber); i++) {
+        if (triangleNumber % i == 0) {
+          divisors.Add(i);
+          divisors.Add(triangleNumber / i);
+        }
+      }
+      return divisors.Count;
     }
 
-     public static long CalculateNthTriangleNumber(int n) {
+    //int CalculateNumberOfDivisors(long triangleNumber) {
+    //  var divisors = new List<long>();
+
+    //  var primeFactors = PrimeGenerator.CalculatePrimeFactors(triangleNumber);
+    //  divisors = new List<long>(primeFactors);
+    //  int i = 1; 
+    //  while(i < primeFactors.Count) {
+    //    divisors.Add(primeFactors[0] * primeFactors[i]);
+    //    divisors.Add(primeFactors[0] * primeFactors[i] * primeFactors[i + 1]);
+    //    i++;
+    //  }
+    //  return 0;
+    //}
+
+    public static long CalculateNthTriangleNumber(int n) {
       return Enumerable.Range(1, n).Sum();
     }
   }

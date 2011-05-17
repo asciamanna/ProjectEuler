@@ -69,5 +69,17 @@ namespace ProjectEuler {
       }
       return true;
     }
+
+    public static List<long> CalculatePrimeFactors(long number) {
+      var primeFactors = new List<long>();
+      for (long i = number; i > 1; i--) {
+        if(IsPrime(i) && number % i == 0) {
+          primeFactors.Add(i);
+          primeFactors.AddRange(CalculatePrimeFactors(number / i));
+          break;
+        }
+      }
+      return primeFactors;
+    }
   }
 }

@@ -14,8 +14,8 @@ namespace ProjectEulerTests {
     }
 
     [Test]
-    public void Solve() { 
-    //Assert.AreEqual(
+    public void Solve() {
+      Assert.AreEqual(76576500, new Problem12(500).Solve());
     }
 
     [Test]
