@@ -12,5 +12,10 @@ namespace ProjectEulerTests {
     public void CalculateSequence() {
       Assert.AreEqual(10, Problem14.CalculateSequence(13).Count);
     }
+
+    [Test]
+    public void Solve() {
+      Assert.AreEqual(837799, new Problem14(1000000).Solve());
+    }
   }
 }

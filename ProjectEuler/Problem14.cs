@@ -5,18 +5,18 @@ using System.Text;
 
 namespace ProjectEuler {
   public class Problem14 : Problem {
-    readonly int startingNumberLimit;
-    int longestChain = 0;
-    int numberThatCreatesLongestChain = 0;
+    readonly long startingNumberLimit;
+    long longestChain, numberThatCreatesLongestChain = 0;
 
-    public Problem14(int startingNumberLimit) {
+    public Problem14(long startingNumberLimit) {
       this.startingNumberLimit = startingNumberLimit;
     }
 
     public override long Solve() {
-      for (int i = 2; i <= startingNumberLimit; i++) {
+      for (long i = 1; i < startingNumberLimit; i++) {
         var sequence = CalculateSequence(i);
-        if (longestChain <= sequence.Count) {
+        if (longestChain < sequence.Count) {
+
           longestChain = sequence.Count;
           numberThatCreatesLongestChain = i;
         }
@@ -24,26 +24,52 @@ namespace ProjectEuler {
       return numberThatCreatesLongestChain;
     }
 
-    public static List<int> CalculateSequence(int n) {
-      List<int> sequence = new List<int> { n };
-      var result = n;
+    public static List<long> CalculateSequence(long n) {
+      var sequence = new List<long> { n };
+      long result = n;
       while (result > 1) {
-        result = IsEven(result) ? EvenSequenceIteration(result) : OddSequenceIteration(result);
+        result = result.IsEven() ? EvenSequenceIteration(result) : OddSequenceIteration(result);
         sequence.Add(result);
       }
       return sequence;
     }
 
-    static int EvenSequenceIteration(int n) {
+    static long EvenSequenceIteration(long n) {
       return n / 2;
     }
 
-    static int OddSequenceIteration(int n) {
+    static long OddSequenceIteration(long n) {
       return 3 * n + 1;
     }
 
-    static bool IsEven(int i) {
-      return (i & 1) == 0;
-    }
+   // public long SolveWithRecursion() {
+   //   Collatz = (long n) => {
+   //     if (n == 1) return 1;
+   //     long nextTerm = n.IsEven() ? n / 2 : 3 * n + 1;
+   //     return Collatz(nextTerm) + 1;
+   //   };
+
+   //   for (long i = 0; i < startingNumberLimit; i++) {
+   //     var length = Memoize(Collatz, i);
+   //     if (length > longestChain) {
+   //       longestChain = length;
+   //       numberThatCreatesLongestChain = i;
+   //     }
+   //   }
+   //   Console.WriteLine("Answer is (Number that creates the longest chain): " + numberThatCreatesLongestChain);
+   //   return numberThatCreatesLongestChain;
+   // }
+
+   // Func<long, long> Collatz = null;
+
+   //long Memoize(Func<long, long> func, long arg) {
+   //   long result;
+   //   if(cache.TryGetValue(arg, out result)) {
+   //     return result;
+   //   }
+   //   result = func(arg);
+   //   cache.Add(arg, result);
+   //   return result;
+   // }
   }
 }
