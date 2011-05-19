@@ -7,14 +7,10 @@ using ProjectEuler;
 
 namespace ProjectEulerTests {
   [TestFixture]
-  public class Problem16Test {
+  public class Problem17Test {
     [Test]
     public void Example() {
-      Assert.AreEqual(26, new Problem16(2, 15).Solve());
-    }
-    [Test]
-    public void Solve() {
-      Assert.AreEqual(1366, new Problem16(2, 1000).Solve());
+      Assert.AreEqual(19, new Problem17(1, 5).Solve());
     }
   }
 }
