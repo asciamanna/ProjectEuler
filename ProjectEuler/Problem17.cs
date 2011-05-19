@@ -25,7 +25,7 @@ namespace ProjectEuler {
         {6, "six"}, {7, "seven" }, {8, "eight"}, {9, "nine"}, {10, "ten"},
         {11, "eleven"}, {12, "twelve"}, {13, "thirteen"}, {14, "fourteen"}, 
         {15, "fifteen"}, {16, "sixteen"}, {17, "seventeen"}, {18, "eighteen"},
-        {19, "nineteen"}, {20, "twenty"}
+        {19, "nineteen"}, {20, "twenty"}, {30, "thirty" }, {40, "forty" }, {50, "fifty"}
       };
     }
     public override long Solve() {
@@ -39,5 +39,35 @@ namespace ProjectEuler {
       }
       return 0;
     }
+
+    public string BuildNumberText(int number) {
+      var writtenNumber = string.Empty;
+
+      if (numberLookup.TryGetValue(number, out writtenNumber)) {
+        return writtenNumber;
+      }
+      else if (number < 100) {
+        return BuildTensNumber(number) + " " + BuildNumberText(number % 10);
+      }
+      else if (number < 1000) {
+         return BuildHundredsNumber(number) + " and " + BuildTensNumber(number % 100) + " " + BuildNumberText(number % 10);
+      }
+      return writtenNumber;
+    }
+
+    string BuildTensNumber(int number) {
+      int tensNumber = number.RoundDownToTens();
+      var writtenNumber = string.Empty;
+      if(numberLookup.TryGetValue(tensNumber, out writtenNumber)) {
+        return writtenNumber;
+      }
+      return numberLookup[tensNumber/10] + "ty";
+    }
+
+    string BuildHundredsNumber(int number) {
+      int hundredsNumber = number / 100;
+      return numberLookup[hundredsNumber] + " hundred";
+    }
+ 
   }
 }

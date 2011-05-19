@@ -8,6 +8,12 @@ namespace ProjectEuler {
     public static bool IsEven(this long n) {
       return(n & 1) == 0;
     }
+
+    public static int RoundDownToTens(this int n) {
+      if (n > 10 && n < 100)
+      return ((int)n / 10) * 10;
+      return 0;
+    }
   }
 }
 
