@@ -46,9 +46,11 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EulerMath.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Primes.cs" />
     <Compile Include="Problem.cs" />
