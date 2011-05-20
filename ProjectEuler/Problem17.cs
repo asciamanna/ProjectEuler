@@ -31,6 +31,7 @@ namespace ProjectEuler {
     public override long Solve() {
       var range = Enumerable.Range((int)startingNumber, (int)(endingNumber - startingNumber + 1));
       var writtenNumber = string.Empty;
+      
       foreach (var number in range) {
         var numberString = string.Empty;
 
