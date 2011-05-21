@@ -9,7 +9,7 @@ namespace ProjectEulerTests {
   public class Problem18Test {
     [Test]
     public void Solve() {
-
+      //Assert.AreEqual(x, new Problem18().Solve());
     }
   }
 }
