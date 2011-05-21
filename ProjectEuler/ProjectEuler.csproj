@@ -68,6 +68,7 @@
     <Compile Include="Problem3.cs" />
     <Compile Include="Problem4.cs" />
     <Compile Include="Problem6.cs" />
+    <Compile Include="Problem67.cs" />
     <Compile Include="Problem7.cs" />
     <Compile Include="Problem8.cs" />
     <Compile Include="Problem9.cs" />
@@ -75,6 +76,12 @@
     <Compile Include="Problem5.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PythagoreanTriple.cs" />
+    <Compile Include="TriangleMaxRouteSolver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\triangle.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
