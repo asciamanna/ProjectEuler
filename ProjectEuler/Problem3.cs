@@ -16,17 +16,7 @@ namespace ProjectEuler {
     }
 
     public override long Solve() {
-      //start at sqrt of number.
-      var limit = (long)Math.Sqrt(number);
-      long largestPrimeFactor = 0;
-
-      for (long i = limit; i > 0; i--) {
-        if (number % i == 0 && Primes.IsPrime(i)) {
-          largestPrimeFactor = i;
-          break;
-        }
-      }
-      return largestPrimeFactor;
+      return Factors.LargestPrimeFactor(number);
     }
   }
 }

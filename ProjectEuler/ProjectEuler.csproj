@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="EulerMath.cs" />
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Factors.cs" />
     <Compile Include="Primes.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Problem1.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Problem19.cs" />
     <Compile Include="Problem2.cs" />
     <Compile Include="Problem20.cs" />
+    <Compile Include="Problem21.cs" />
     <Compile Include="Problem3.cs" />
     <Compile Include="Problem4.cs" />
     <Compile Include="Problem6.cs" />

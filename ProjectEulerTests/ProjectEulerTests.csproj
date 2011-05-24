@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EulerMathTest.cs" />
+    <Compile Include="FactorsTest.cs" />
     <Compile Include="PrimeGeneratorTest.cs" />
     <Compile Include="Problem10Test.cs" />
     <Compile Include="Problem11Test.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Problem18Test.cs" />
     <Compile Include="Problem19Test.cs" />
     <Compile Include="Problem20Test.cs" />
+    <Compile Include="Problem21Test.cs" />
     <Compile Include="Problem2Test.cs" />
     <Compile Include="Problem1Test.cs" />
     <Compile Include="Problem3Test.cs" />
