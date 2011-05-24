@@ -69,6 +69,7 @@
     <Compile Include="Problem2.cs" />
     <Compile Include="Problem20.cs" />
     <Compile Include="Problem21.cs" />
+    <Compile Include="Problem22.cs" />
     <Compile Include="Problem3.cs" />
     <Compile Include="Problem4.cs" />
     <Compile Include="Problem6.cs" />
@@ -83,7 +84,10 @@
     <Compile Include="TriangleMaxRouteSolver.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\triangle.txt">
+    <Content Include="Data\Problem22\names.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Problem67\triangle.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

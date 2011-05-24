@@ -17,7 +17,7 @@ namespace ProjectEuler {
       try {
         triangle = new List<List<long>>();
 
-        var strings = File.ReadAllLines(@".\Data\triangle.txt").ToList();
+        var strings = File.ReadAllLines(@".\Data\Problem67\triangle.txt").ToList();
         foreach(var row in strings) {
           var rowSplit = row.Split(' ').ToList();
           List<long> rowList = new List<long>();
