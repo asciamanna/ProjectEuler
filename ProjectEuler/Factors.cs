@@ -45,10 +45,6 @@ namespace ProjectEuler {
       return abundantNumbers;
     }
 
-    public static bool IsAbundant(long number) {
-      return SumOfProperDivisors(number) > number;
-    }
-
     public static long SumOfDivisors(long number) {
       long sum = 1;
       int p = 2;
@@ -72,6 +68,16 @@ namespace ProjectEuler {
 
     public static long SumOfProperDivisors(long number) {
       return SumOfDivisors(number) - number;
+    }
+
+    public static Dictionary<long, bool> AbundantNumbersBelow(long number) {
+      var abundantNumbers = new Dictionary<long, bool>();
+
+      for (int i = 1; i < number; i++) {
+        if (SumOfProperDivisors(i) > i) abundantNumbers.Add(i, true);
+        else abundantNumbers.Add(i, false);
+      }
+      return abundantNumbers;
     }
   }
 }
