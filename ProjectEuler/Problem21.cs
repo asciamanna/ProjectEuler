@@ -9,12 +9,16 @@ namespace ProjectEuler {
       var limit = 10000;
       var amicablePairs = new List<long>();
       for (int i = 2; i < limit; i++) {
-        var sumOfProperDivisors = Factors.CalculateProperDivisors(i).Sum();
-        if (sumOfProperDivisors != i && Factors.CalculateProperDivisors(sumOfProperDivisors).Sum() == i) {
+        var sumOfProperDivisors = SumOfProperDivisors(i);
+        if (sumOfProperDivisors > i && SumOfProperDivisors(sumOfProperDivisors) == i) {
           amicablePairs.AddRange(new List<long> { i, sumOfProperDivisors });
         }
       }
       return amicablePairs.Distinct().Sum();
+    }
+
+    long SumOfProperDivisors(long i) {
+      return Factors.CalculateProperDivisors(i).Sum();
     }
   }
 }
