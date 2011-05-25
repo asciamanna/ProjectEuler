@@ -18,7 +18,7 @@ namespace ProjectEuler {
     }
 
     long SumOfProperDivisors(long i) {
-      return Factors.CalculateProperDivisors(i).Sum();
+      return Factors.SumOfProperDivisors(i);
     }
   }
 }

@@ -32,6 +32,7 @@ namespace ProjectEuler {
       return GetFactors(i).Where(f => f != i).ToList();
     }
 
+    [Obsolete]
     public static List<long> CalculateAbundantNumbersBelow(long number) {
       var abundantNumbers = new List<long>();
 
@@ -44,35 +45,32 @@ namespace ProjectEuler {
     }
 
     public static bool IsAbundant(long number) {
-      return CalculateProperDivisors(number).Sum() > number;
+      return SumOfProperDivisors(number) > number;
     }
 
-    //public static long SumOfProperDivisors(long number) {
-    //  if (number == 1) return 0;
-    //  long sum = 0;
-    //  var limit = (long)Math.Sqrt(number);
-    //  if (limit * limit == number) {
-    //    sum = 1 + limit;
-    //    limit--;
-    //  }
-    //  else sum = 1;
+    public static long SumOfDivisors(long number) {
+      long sum = 1;
+      int p = 2;
+      while (p * p <= number && number > 1) {
+        if (number % p == 0) {
+          var j = p * p;
+          number = number / p;
+          while (number % p == 0) {
+            j *= p;
+            number = number / p;
+          }
+          sum *= (j - 1);
+          sum = sum / (p - 1);
+        }
+        if (p == 2) p = 3;
+        else p += 2;
+      }
+      if (number>1) sum*=(number+1);
+      return sum;
+    }
 
-    //  if (number.IsOdd()) {
-
-    //  }
-
-    //}
-    
-//Function SumOfProperDivisors(n) 
-//If n=1 then return 0 else 
-//r=floor( n ) 
-////first take into account the case that n is a perfect square. 
-//if r*r=n then sum=1+r r=r-1 else sum=1 
-//if odd(n) then f=3 step=2 else f=2 step=1 
-//while f<=r    
-//    if n mod f=0 then sum=sum+f+n div f 
-//    f=f+step 
-//return sum 
-//EndFunctio
+    public static long SumOfProperDivisors(long number) {
+      return SumOfDivisors(number) - number;
+    }
   }
 }
