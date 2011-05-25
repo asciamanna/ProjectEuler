@@ -6,6 +6,7 @@ using System.Collections;
 
 namespace ProjectEuler {
   public static class Primes {
+    [Obsolete]
     public static List<long> OldPrimeGenerator(long primesBelow) {
       var primes = new List<long> { 2 };
 

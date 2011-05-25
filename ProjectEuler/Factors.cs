@@ -28,6 +28,7 @@ namespace ProjectEuler {
       return factors;
     }
 
+    [Obsolete]
     public static List<long> CalculateProperDivisors(long i) {
       return GetFactors(i).Where(f => f != i).ToList();
     }

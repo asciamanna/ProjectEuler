@@ -44,6 +44,23 @@ namespace ProjectEuler {
       return sum;
     }
 
+    //public override long Solve() {
+    //  //All numbers greater than 28123 can be written as the sum 
+    //  //of two abundant numbers.
+    //  long sum = 0;
+    //  for (int i = 1; i <= 28123; i++) {
+    //    bool isSumOfAbundantNumbers = false;
+    //    for(int j = 1; j < i; j++) {
+    //      if (IsAbundant(i) && IsAbundant(i -j)) {
+    //        isSumOfAbundantNumbers = true;
+    //        break;
+    //      }
+    //    }
+    //    if (!isSumOfAbundantNumbers) sum += i;
+    //  }
+    //  return sum;
+    //}
+
     bool IsAbundant(int number) {
       if (abundantLookup.ContainsKey(number)) return abundantLookup[number];
       var isAbundant = Factors.IsAbundant(number);
