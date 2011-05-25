@@ -17,7 +17,7 @@ namespace ProjectEuler {
         listOfInts.Add(Int32.Parse(digit.ToString()));
       }
 
-      return listOfInts.Sum(); ;
+      return listOfInts.Sum();
     }
   }
 }

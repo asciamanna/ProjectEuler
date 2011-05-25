@@ -50,7 +50,6 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NumberType.cs" />
     <Compile Include="EulerMath.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Factors.cs" />

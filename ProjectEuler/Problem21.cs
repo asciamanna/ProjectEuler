@@ -14,7 +14,7 @@ namespace ProjectEuler {
           amicablePairs.AddRange(new List<long> { i, sumOfProperDivisors });
         }
       }
-      return amicablePairs.Distinct().Sum();
+      return amicablePairs.Sum();
     }
 
     long SumOfProperDivisors(long i) {

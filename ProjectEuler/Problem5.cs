@@ -31,7 +31,7 @@ namespace ProjectEuler {
     }
     public override long Solve() {
       var range = Enumerable.Range(lower, upper - lower + 1);
-      for (int i = upper ; i < int.MaxValue; i+=upper) {
+      for (int i = upper; i < int.MaxValue; i+=upper) {
         if (range.All(rangeNum => i % rangeNum == 0)) return i;
       }
       return 0;
