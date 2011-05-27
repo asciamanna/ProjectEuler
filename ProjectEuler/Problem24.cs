@@ -7,22 +7,21 @@ using System.Numerics;
 namespace ProjectEuler {
   public class Problem24 : Problem {
     List<int> numbers = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-
     public override long Solve() {
-      long permutationPositionToFind = 1000000;
-      var permutationLength = numbers.Count;
-      var permutation = string.Empty;
+      int N = numbers.Count;
+      string permutation = "";
+      int permutationToFind = 1000000 - 1;
 
-      var factorial = numbers.Count - 1;
-
-      while(numbers.Count > 0) {
-        var range = EulerMath.Factorial(factorial);
-        var i = 1;
-        while(range*i < permutationPositionToFind) { i++; }
-        permutation+=numbers[i-1];
-        permutationPositionToFind -= (long)(range*(i-1)+1);
-        factorial--;
-        numbers.RemoveAt(i-1);
+      for (int i = 1; i < N; i++) {
+        int location = (int)(permutationToFind / EulerMath.Factorial(N - i));
+        permutationToFind = (int)(permutationToFind % EulerMath.Factorial(N - i));
+        permutation = permutation + numbers[location];
+        numbers.RemoveAt(location);
+        if (permutationToFind == 0) {
+          break;
+        }
+      } for (int i = numbers.Count - 1; i >= 0; i--) {
+        permutation+= numbers[i];
       }
       return long.Parse(permutation);
     }
