@@ -10,6 +10,7 @@ namespace ProjectEuler {
     //What is the largest prime factor of the number 600851475143 ?
     //-------------------------------------------------------------
     readonly long number;
+    public Problem3() : this(600851475143) { }
 
     public Problem3(long number) {
       this.number = number;

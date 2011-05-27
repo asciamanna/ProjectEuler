@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
-  public class Problem20 : Problem{
+  public class Problem20 : Problem {
     readonly long number;
+    public Problem20() : this(100) { }
+
     public Problem20(long number) {
       this.number = number;
     }

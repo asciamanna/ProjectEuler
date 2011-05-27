@@ -13,6 +13,7 @@ namespace ProjectEuler {
    //First attempt: finding all prime numbers less than the one we are looking for: 0.89 seconds.
 
    readonly int whichPrime;
+   public Problem7() : this(10001) { }
 
    public Problem7(int whichPrime) {
      this.whichPrime = whichPrime;

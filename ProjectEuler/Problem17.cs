@@ -19,6 +19,8 @@ namespace ProjectEuler {
         {19, "nineteen"}, {20, "twenty"}, {30, "thirty" }, {40, "forty" }, {50, "fifty"},
         {1000, "one thousand"} };
 
+    public Problem17() : this(1, 1000) { }
+
     public Problem17(long startingNumber, long endingNumber) {
       if (startingNumber > endingNumber) throw new ArgumentException("starting number cannot exceed ending number");
       if (Math.Abs(startingNumber) > 1000 || Math.Abs(endingNumber) > 1000) 

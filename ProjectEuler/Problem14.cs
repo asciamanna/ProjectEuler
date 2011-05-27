@@ -8,6 +8,8 @@ namespace ProjectEuler {
     readonly long startingNumberLimit;
     long longestChain, numberThatCreatesLongestChain = 0;
 
+    public Problem14() : this(1000000) { }
+
     public Problem14(long startingNumberLimit) {
       this.startingNumberLimit = startingNumberLimit;
     }

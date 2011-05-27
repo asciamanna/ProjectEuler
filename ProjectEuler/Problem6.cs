@@ -15,6 +15,8 @@ namespace ProjectEuler {
     readonly IEnumerable<int> naturalNumbers;
     readonly int numberOfNaturalNumbers;
 
+    public Problem6() : this(100) { }
+
     public Problem6(int numberOfNaturalNumbers) {
       this.numberOfNaturalNumbers = numberOfNaturalNumbers;
       this.naturalNumbers = Enumerable.Range(1, numberOfNaturalNumbers);

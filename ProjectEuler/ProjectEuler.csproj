@@ -53,6 +53,7 @@
     <Compile Include="EulerMath.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Factors.cs" />
+    <Compile Include="FibonacciSequence.cs" />
     <Compile Include="Primes.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Problem1.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Problem22.cs" />
     <Compile Include="Problem23.cs" />
     <Compile Include="Problem24.cs" />
+    <Compile Include="Problem25.cs" />
     <Compile Include="Problem3.cs" />
     <Compile Include="Problem4.cs" />
     <Compile Include="Problem6.cs" />

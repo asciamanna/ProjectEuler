@@ -11,6 +11,7 @@ namespace ProjectEuler {
     //----------------------------------------------------------
 
     readonly int belowNumber;
+    public Problem1() : this(1000) { }
 
     public Problem1(int belowNumber) {
       this.belowNumber = belowNumber;

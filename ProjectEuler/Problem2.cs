@@ -11,25 +11,8 @@ namespace ProjectEuler {
     //-----------------------------------------------------------------
 
     public override long Solve() {
-      var sequence = GenerateFibonacciSequence(4000000);
+      var sequence = FibonacciSequence.GenerateSequenceBelow(4000000);
      return CalculateEvenTermsSum(sequence);
-    }
-
-    List<int> GenerateFibonacciSequence(int limit) {
-      if (limit < 2) {
-        return new List<int> { 1 };
-      }
-
-      var sequence = new List<int> { 1, 2 };
-      int i = 0;
-      int nextValue = 0;
-
-      while (nextValue <= limit) {
-        nextValue = sequence[i] + sequence[i + 1];
-        sequence.Add(nextValue);
-        i++;
-      }
-      return sequence;
     }
 
     int CalculateEvenTermsSum(List<int> sequence) {

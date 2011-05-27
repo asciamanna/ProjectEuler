@@ -11,6 +11,7 @@ namespace ProjectEuler {
     //--------------------------------
     readonly int primesBelow;
 
+    public Problem10() : this(2000000) { }
     public Problem10(int primesBelow) {
       this.primesBelow = primesBelow;
     }

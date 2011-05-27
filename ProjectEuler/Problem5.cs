@@ -24,6 +24,7 @@ namespace ProjectEuler {
 
     readonly int lower;
     readonly int upper;
+    public Problem5() : this(1, 20) { }
 
     public Problem5(int lower, int upper) {
       this.lower = lower;

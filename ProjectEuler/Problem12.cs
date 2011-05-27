@@ -7,6 +7,8 @@ namespace ProjectEuler {
   public class Problem12 : Problem {
     readonly int moreThanNumberOfDivisors;
 
+    public Problem12() : this(500) { }
+
     public Problem12(int moreThanNumberOfDivisors) {
       this.moreThanNumberOfDivisors = moreThanNumberOfDivisors;
     }

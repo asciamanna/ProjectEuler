@@ -15,6 +15,8 @@ namespace ProjectEuler {
     //DONE: set inner loop to current value of outer loop
     
     readonly int numberOfDigits;
+    public Problem4() : this(3) { }
+
     public Problem4(int numberOfDigits) {
       this.numberOfDigits = numberOfDigits;
     }

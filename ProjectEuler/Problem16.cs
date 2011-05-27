@@ -9,6 +9,8 @@ namespace ProjectEuler {
     readonly int number;
     readonly int exponent;
 
+    public Problem16() : this(2, 1000) { }
+
     public Problem16(int number, int exponent) {
       this.number = number;
       this.exponent = exponent;

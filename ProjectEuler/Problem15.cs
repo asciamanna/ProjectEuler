@@ -11,6 +11,8 @@ namespace ProjectEuler {
     //How many routes are there through a 20x20 grid?
     //---------------------------------------
     readonly long gridSize;
+    public Problem15() : this(20) { }
+
     public Problem15(long gridSize) {
       this.gridSize = gridSize;
     }
