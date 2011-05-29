@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using ProjectEuler;
+using System.Numerics;
 
 namespace ProjectEulerTests {
   [TestFixture]
@@ -15,13 +16,14 @@ namespace ProjectEulerTests {
 
     [Test]
     public void Solve() {
-      //Assert.AreEqual(
+      Assert.AreEqual(983, new Problem26(1000).Solve());
     }
 
     [Test]
     public void FindRecurringCycleLength() {
-      Assert.AreEqual(3, Problem26.FindRecurringCycleLength(0.123123123m));
-      Assert.AreEqual(3, Problem26.FindRecurringCycleLength(0.89123123123m));
+      Assert.AreEqual(1, new Problem26(10).FindRecurringCycleLength(3));
+      Assert.AreEqual(6, new Problem26(10).FindRecurringCycleLength(7));
+      Assert.AreEqual(999, new Problem26(2000).FindRecurringCycleLength(1999));
     }
   }
 }
