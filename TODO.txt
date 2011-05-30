@@ -5,6 +5,7 @@ _____________________
 Problem Runner exe
 3) Remove SolveToConsole method once ProblemRunner works (will be redundant)
 4) change base Problem class to interface once Problem runner works (will be redundant)
+5) Convert ProjectEuler project to be a dll instead of exe one Problem Runner works).
 
 ProblemRunner Project:
 ______________________
