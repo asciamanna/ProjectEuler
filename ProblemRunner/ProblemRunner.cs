@@ -13,9 +13,12 @@ namespace ProblemRunner {
     DateTime end;
     bool runAll;
     Assembly assembly;
+    const int NUM_SLOWEST = 10;
+    Dictionary<int, DateTime> timings;
 
     public ProblemRunner(int problemToRun) {
       this.problemToRun = problemToRun;
+      timings = new Dictionary<int, DateTime>();
     }
 
     public ProblemRunner() {
@@ -32,8 +35,7 @@ namespace ProblemRunner {
         }
       }
       else {
-        var type = allProblemTypes.Where(t => t.Name == string.Format("Problem{0}", problemToRun)).First();
-
+        var type = allProblemTypes.First(t => t.Name == string.Format("Problem{0}", problemToRun));
         SolveProblem(type);
       }
     }
