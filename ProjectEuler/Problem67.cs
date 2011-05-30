@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 
 namespace ProjectEuler {
+  [EulerProblem(67, "")]
   public class Problem67 : Problem {
     List<List<long>> triangle;
     

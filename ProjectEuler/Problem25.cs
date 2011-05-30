@@ -5,6 +5,7 @@ using System.Text;
 using System.Numerics;
 
 namespace ProjectEuler {
+  [EulerProblem(25, "")]
   public class Problem25 : Problem {
     int maxNumberOfDigits;
     List<BigInteger> sequence;

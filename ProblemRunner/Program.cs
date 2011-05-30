@@ -11,7 +11,7 @@ namespace ProblemRunner {
       var input = Console.ReadLine().Trim();
       int problemToRun = 0;
       if (input.ToLower() == "a") {
-        //run all
+        new ProblemRunner().Run();
       }
       else if (input.ToLower().StartsWith("slowest")) {
         //print slowest to screen and file
@@ -19,6 +19,8 @@ namespace ProblemRunner {
       else if (int.TryParse(input, out problemToRun)) {
         new ProblemRunner(problemToRun).Run();
       }
+      //keep window open
+      Console.ReadLine();
     }
   }
 }

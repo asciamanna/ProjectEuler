@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  [EulerProblem(4, "Find the largest palindrome made from the product of two 3-digit numbers.")]
   public class Problem4 : Problem {
     //----------------------------------------------------------------------------
     //A palindromic number reads the same both ways. The largest palindrome made 

@@ -6,6 +6,7 @@ using System.IO;
 using System.Numerics;
 
 namespace ProjectEuler {
+  [EulerProblem(26, "")]
   public class Problem26 : Problem {
     // http://en.wikipedia.org/wiki/Repeating_decimal#Cyclic_numbers
     // using Fermat's little theorem

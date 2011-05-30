@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 
 namespace ProjectEuler {
+  [EulerProblem(13, "")]
   public class Problem13 : Problem {
     const int INT_LENGTH = 50;
     const int NUMBER_OF_INTS = 100;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  [EulerProblem(11, "What is the greatest product of four adjacent numbers in any direction in the 20 x 20 grid?")]
   public class Problem11 : Problem {
     //------------------------------------
     //What is the greatest product of four adjacent

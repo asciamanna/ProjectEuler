@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  [EulerProblem(9, @"There exists exactly one Pythagorean triple for which a + b + c = 1000.
+Find the product abc.")]
   public class Problem9 : Problem {
     //-------------------------------
     //A Pythagorean triple is a set of three natural numbers, a<b<c, for which,

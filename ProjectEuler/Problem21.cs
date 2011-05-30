@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ProjectEuler {
   public class Problem21 : Problem {
+    [EulerProblem(21, "")]
     public override long Solve() {
       var limit = 10000;
       var amicablePairs = new List<long>();

@@ -4,24 +4,59 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 using System.IO;
+using System.Windows.Forms;
 
 namespace ProblemRunner {
   public class ProblemRunner {
     int problemToRun;
     DateTime start;
     DateTime end;
+    bool runAll;
+    Assembly assembly;
 
     public ProblemRunner(int problemToRun) {
       this.problemToRun = problemToRun;
     }
 
+    public ProblemRunner() {
+      this.runAll = true;
+    }
+
     public void Run() {
-      var assembly = Assembly.LoadFrom(@"C:\development\ProjectEuler\ProjectEuler\bin\debug\ProjectEuler.exe");
-      var type = assembly.GetTypes().Where(t => t.Name == string.Format("Problem{0}", problemToRun)).First();
+      assembly = Assembly.LoadFrom(@"C:\development\ProjectEuler\ProjectEuler\bin\debug\ProjectEuler.exe");
+      var allProblemTypes = assembly.GetTypes()
+             .Where(t => !t.IsAbstract && t.Name.ToLower().StartsWith("problem")).OrderBy(t => t.Name);
+      if (runAll) {
+        foreach (var eulerProblem in allProblemTypes) {
+          SolveProblem(eulerProblem);
+        }
+      }
+      else {
+        var type = allProblemTypes.Where(t => t.Name == string.Format("Problem{0}", problemToRun)).First();
+
+        SolveProblem(type);
+      }
+    }
+
+    void SolveProblem(Type type) {
       var problem = assembly.CreateInstance(type.FullName);
-      var method = type.GetMethod("SolveToConsole");
-      method.Invoke(problem, null);
-      Console.ReadLine();
+      var method = type.GetMethod("Solve");
+      start = DateTime.Now;
+      var answer = (long)method.Invoke(problem, null);
+      end = DateTime.Now;
+      Clipboard.SetText(answer.ToString());
+      WriteTimingData(type, answer);
+    }
+
+    void WriteTimingData(Type type, long answer) {
+      Console.WriteLine("The answer to Project Euler " + type.Name + ": " + answer);
+      Console.WriteLine("TOTAL TIME:");
+      Console.WriteLine("-----------");
+      Console.WriteLine(string.Format("Milliseconds: {0}", (end - start).TotalMilliseconds));
+      Console.WriteLine(string.Format("Seconds: {0}", (end - start).TotalSeconds));
+      Console.WriteLine(string.Format("Minutes: {0}", (end - start).TotalMinutes));
+      Console.WriteLine("=========================================================");
+      Console.WriteLine();
     }
   }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 
 namespace ProjectEuler {
+  [EulerProblem(22, "")]
   public class Problem22 : Problem {
     Dictionary<string, long> scoreLookup = new Dictionary<string, long>();
 

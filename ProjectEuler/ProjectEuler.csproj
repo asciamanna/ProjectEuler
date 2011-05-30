@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EulerMath.cs" />
+    <Compile Include="EulerProblem.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Factors.cs" />
     <Compile Include="FibonacciSequence.cs" />

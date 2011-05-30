@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  [EulerProblem(12, "")]
   public class Problem12 : Problem {
     readonly int moreThanNumberOfDivisors;
 

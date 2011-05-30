@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  [EulerProblem(7, "What is the 10001st prime number?")]
  public class Problem7 : Problem {
    //------------------------------
    //By listing the first six prime numbers: 

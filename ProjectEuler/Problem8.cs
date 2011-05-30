@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  [EulerProblem(8, "Find the greatest product of five consecutive digits in the 1000-digit number.")]
   public class Problem8 : Problem {
     //------------------------------------------------------------------------------
     //Find the greatest product of five consecutive digits in the 1000-digit number.

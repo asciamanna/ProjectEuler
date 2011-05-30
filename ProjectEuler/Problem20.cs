@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  [EulerProblem(20, "")]
   public class Problem20 : Problem {
     readonly long number;
     public Problem20() : this(100) { }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Collections;
 
 namespace ProjectEuler {
+  [EulerProblem(23, "")]
   public class Problem23 : Problem {
     public override long Solve() {
       //All numbers greater than 28123 can be written as the sum 

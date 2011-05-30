@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Windows;
 
 namespace ProjectEuler {
+  [EulerProblem(2,@"By considering the terms in the Fibnonacci sequence whose values
+do not exceed four million, find the sum of the even-valued terms.")]
   public class Problem2 : Problem {
     //-----------------------------------------------------------------
     //By considering the terms in the Fibonacci sequence whose values 

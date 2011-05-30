@@ -5,6 +5,7 @@ using System.Text;
 using System.Numerics;
 
 namespace ProjectEuler {
+  [EulerProblem(16,"")]
   public class Problem16 : Problem {
     readonly int number;
     readonly int exponent;

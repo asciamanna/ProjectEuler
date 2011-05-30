@@ -1,0 +1,15 @@
+ProjectEuler Project:
+_____________________
+1) Fill in missing descriptions on EulerProblem attributes
+2) Fix issue with data file references as relative directories (fails when running problems from
+Problem Runner exe
+3) Remove SolveToConsole method once ProblemRunner works (will be redundant)
+4) change base Problem class to interface once Problem runner works (will be redundant)
+
+ProblemRunner Project:
+______________________
+1) Use attributes in reflection instead of class names.
+2) refactor to use one codepath to run a single test and all tests.
+3) convert reflection query to LINQ.
+4) Add capability to run all and list x slowest problem solutions.
+

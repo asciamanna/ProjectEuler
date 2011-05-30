@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  [EulerProblem(5,@"What is the smallest positive number that is evenly divisble by all 
+numbers from 1 to 20")]
   public class Problem5 : Problem {
     //---------------------------------------------
     //2520 is the smallest number that can be divided 

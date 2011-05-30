@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  [EulerProblem(15,"")]
   public class Problem15 : Problem {
     //------------------------------------
     // Starting in the top left corner of a 2x2 grid, 

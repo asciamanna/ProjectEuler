@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  [EulerProblem(18, "")]
   public class Problem18 : Problem {
     List<List<long>> triangle = new List<List<long>> {
       new List<long>{75},

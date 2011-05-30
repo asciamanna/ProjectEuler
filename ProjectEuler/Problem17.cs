@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  [EulerProblem(17, "")]
   public class Problem17 : Problem {
     //TODO: Add negatives.
     //TODO: Add numbers over 1000

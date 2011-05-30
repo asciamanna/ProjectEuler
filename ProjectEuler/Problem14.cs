@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  [EulerProblem(14, "")]
   public class Problem14 : Problem {
     readonly long startingNumberLimit;
     long longestChain, numberThatCreatesLongestChain = 0;
