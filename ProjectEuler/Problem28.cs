@@ -27,8 +27,9 @@ namespace ProjectEuler {
         southEastDiagonal.Add(num);
         southWestDiagonal.Add(num + step);
         northWestDiagonal.Add(num + (2 * step));
-        northEastDiagonol.Add(num + (3 * step));
+        
         var lastStepOfIteration = num + (3 * step);
+        northEastDiagonol.Add(lastStepOfIteration);
         step +=2;
         num = lastStepOfIteration + step;
       }
