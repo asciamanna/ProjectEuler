@@ -26,9 +26,13 @@ namespace ProjectEuler {
     }
 
     public override long Solve() {
-      var listOfCoins = new List<BritishCoins> { BritishCoins.TwoPound, BritishCoins.OnePound, BritishCoins.FiftyPence,
+      
+      var allCoins = new List<BritishCoins> { BritishCoins.TwoPound, BritishCoins.OnePound, BritishCoins.FiftyPence,
         BritishCoins.TwentyPence, BritishCoins.TenPence, BritishCoins.FivePence, BritishCoins.TwoPence, BritishCoins.OnePence };
 
+      foreach (var coin in allCoins) {
+        
+      }
       return 0;
     }
   }
