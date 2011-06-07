@@ -18,6 +18,25 @@ namespace ProjectEuler {
       return ((int)n / 10) * 10;
       return 0;
     }
+
+    public static bool IsPandigital(this int number) {
+      return PandigitalCheck(number);
+    }
+
+    public static bool IsPandigital(this long number) {
+      return PandigitalCheck(number);
+    }
+
+    private static bool PandigitalCheck(long number) {
+      var digits = new SortedSet<char>();
+      foreach (var digit in number.ToString()) {
+        if (digit == '0') return false;
+        digits.Add(digit);
+      }
+      return digits.Count == number.ToString().Length;
+    }
+
+  
   }
 }
 

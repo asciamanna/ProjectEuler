@@ -6,77 +6,44 @@ using System.Text;
 namespace ProjectEuler {
   [EulerProblem(32, "Find the sum of all numbers that can be written as pandigital products.")]
   public class Problem32 : Problem {
+    const int MIN_ONE_DIGIT_PANDIGITAL = 1;
+    const int MAX_ONE_DIGIT_PANDIGITAL = 9;
+    const int MIN_THREE_DIGIT_PANDIGITAL = 123;
+    const int MAX_THREE_DIGIT_PANDIGITAL = 987;
     //pandigital products to 9.
-    //multiplier * multiplicand = product 
-    //need pandigital to 9.
+    //multiplier * multiplicand = product (product identity) 
+    
     //must be of the form 3 digits * 2 digits = 4 digits
-    // or                 2 digits * 3 digits = 4 digits
-    //since can't get a smaller product when mulitplying two positive numbers.
+    // or                 1 digit * 4 digits = 4 digits
 
-    List<int> pandigitalProducts = new List<int>();
+    SortedSet<int> pandigitalProducts = new SortedSet<int>();
 
     public override long Solve() {
-      var multiplier = new PandigitalNumber(123);
-      var multiplicand = new PandigitalNumber(12);
-      while (DoesntExceedPandigitalLength(multiplier.Current, multiplicand.Current, multiplier.Current * multiplicand.Current)) {
-        if (IsPandigital(multiplier.Current, multiplicand.Current, multiplier.Current * multiplicand.Current)) {
-          pandigitalProducts.Add(multiplier.Current * multiplicand.Current);
-        }
-        multiplicand.Next();
-        multiplier.Next();
-      }
-      return pandigitalProducts.Distinct().Sum();
-    }
+      GeneratePandigitalProducts();
 
-    private bool DoesntExceedPandigitalLength(params int[] values) {
-      var totalDigitCount = 0;
-      foreach (var value in values) {
-        totalDigitCount += value.ToString().Length;
-      }
-      return totalDigitCount <= 9;
-    }
-
-    private bool IsPandigital(params int[] values) {
-      var listOfDigits = new List<char>();
-      foreach (var value in values) {
-        foreach (var digit in value.ToString()) {
-          if (listOfDigits.Contains(digit)) return false;
-          listOfDigits.Add(digit);
+      for (int multiplier = 1; multiplier < 9; multiplier++) {
+        for (int multiplicand = 1234; multiplicand < 9876; multiplicand++) {
+          var identity = BuildIdentity(multiplier, multiplicand);
+          if (identity.IsPandigital()) {
+            pandigitalProducts.Add(multiplier * multiplicand);
+          }
         }
       }
-      return !listOfDigits.Contains('0') || listOfDigits.Count != 9;
-    }
-  }
-
-  public class PandigitalNumber {
-
-    int startRange;
-    int endRange;
-    int currentNumber;
-
-    public PandigitalNumber(int startingNumber) {
-      this.currentNumber = startingNumber;
+      return pandigitalProducts.Sum();
     }
 
-    public int Current {
-      get { return currentNumber; }
-    }
-
-    public int Next() {
-      currentNumber++;
-      while (AnyDigitsRepeat(currentNumber) || currentNumber.ToString().Contains('0')) {
-        currentNumber++;
+    private void GeneratePandigitalProducts() {
+      for (int multiplier = 123; multiplier < 987; multiplier++) {
+        for (int multiplicand = 12; multiplicand < 98; multiplicand++) {
+          var identity = BuildIdentity(multiplier, multiplicand);
+          if (identity.IsPandigital()) {
+            pandigitalProducts.Add(multiplier * multiplicand);
+          }
+        }
       }
-      return currentNumber;
     }
-
-    bool AnyDigitsRepeat(int number) {
-      List<char> digitsFound = new List<char>();
-      foreach (var digit in number.ToString()) {
-        if (digitsFound.Contains(digit)) return true;
-        digitsFound.Add(digit);
-      }
-      return false;
+    static long BuildIdentity(int multiplier, int multiplicand) {
+      return long.Parse(multiplier.ToString() + multiplicand.ToString() + (multiplier * multiplicand).ToString());
     }
   }
 }
