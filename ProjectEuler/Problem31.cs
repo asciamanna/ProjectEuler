@@ -18,21 +18,23 @@ namespace ProjectEuler {
   }
 
   public class Problem31 : Problem {
+    //http://www.algorithmist.com/index.php/Coin_Change
+    List<string> combinations;
     int amountToFind;
-    public Problem31() : this(200) { }
+    int numberOfCombinations;
+    public Problem31()
+      : this(200) {
+      numberOfCombinations = 0;
+    }
 
     public Problem31(int amountToFind) {
       this.amountToFind = amountToFind;
     }
 
     public override long Solve() {
-      
+
       var allCoins = new List<BritishCoins> { BritishCoins.TwoPound, BritishCoins.OnePound, BritishCoins.FiftyPence,
         BritishCoins.TwentyPence, BritishCoins.TenPence, BritishCoins.FivePence, BritishCoins.TwoPence, BritishCoins.OnePence };
-
-      foreach (var coin in allCoins) {
-        
-      }
       return 0;
     }
   }
