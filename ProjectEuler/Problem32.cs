@@ -8,8 +8,12 @@ namespace ProjectEuler {
   public class Problem32 : Problem {
     const int MIN_ONE_DIGIT_PANDIGITAL = 1;
     const int MAX_ONE_DIGIT_PANDIGITAL = 9;
+    const int MIN_TWO_DIGIT_PANDIGITAL = 12;
+    const int MAX_TWO_DIGIT_PANDIGITAL = 98;
     const int MIN_THREE_DIGIT_PANDIGITAL = 123;
     const int MAX_THREE_DIGIT_PANDIGITAL = 987;
+    const int MIN_FOUR_DIGIT_PANDIGITAL = 1234;
+    const int MAX_FOUR_DIGIT_PANDIGITAL = 9876;
     //pandigital products to 9.
     //multiplier * multiplicand = product (product identity) 
     
@@ -19,22 +23,20 @@ namespace ProjectEuler {
     SortedSet<int> pandigitalProducts = new SortedSet<int>();
 
     public override long Solve() {
-      GeneratePandigitalProducts();
+      var twoDigitRange = Enumerable.Range(MIN_TWO_DIGIT_PANDIGITAL, MAX_TWO_DIGIT_PANDIGITAL - MIN_TWO_DIGIT_PANDIGITAL + 1);
+      var threeDigitRange = Enumerable.Range(MIN_THREE_DIGIT_PANDIGITAL, MAX_THREE_DIGIT_PANDIGITAL - MIN_THREE_DIGIT_PANDIGITAL + 1);
+      GeneratePandigitalProducts(twoDigitRange, threeDigitRange);
 
-      for (int multiplier = 1; multiplier < 9; multiplier++) {
-        for (int multiplicand = 1234; multiplicand < 9876; multiplicand++) {
-          var identity = BuildIdentity(multiplier, multiplicand);
-          if (identity.IsPandigital()) {
-            pandigitalProducts.Add(multiplier * multiplicand);
-          }
-        }
-      }
+      var oneDigitRange = Enumerable.Range(MIN_ONE_DIGIT_PANDIGITAL, MAX_ONE_DIGIT_PANDIGITAL - MIN_ONE_DIGIT_PANDIGITAL + 1);
+      var fourDigitRange = Enumerable.Range(MIN_FOUR_DIGIT_PANDIGITAL, MAX_FOUR_DIGIT_PANDIGITAL - MIN_FOUR_DIGIT_PANDIGITAL + 1);
+
+      GeneratePandigitalProducts(oneDigitRange, fourDigitRange);
       return pandigitalProducts.Sum();
     }
 
-    private void GeneratePandigitalProducts() {
-      for (int multiplier = 123; multiplier < 987; multiplier++) {
-        for (int multiplicand = 12; multiplicand < 98; multiplicand++) {
+    private void GeneratePandigitalProducts(IEnumerable<int> multiplierRange, IEnumerable<int> multiplicandRange) {
+      foreach(var multiplier in multiplierRange) {
+       foreach(var multiplicand in multiplicandRange) {
           var identity = BuildIdentity(multiplier, multiplicand);
           if (identity.IsPandigital()) {
             pandigitalProducts.Add(multiplier * multiplicand);
@@ -42,6 +44,7 @@ namespace ProjectEuler {
         }
       }
     }
+
     static long BuildIdentity(int multiplier, int multiplicand) {
       return long.Parse(multiplier.ToString() + multiplicand.ToString() + (multiplier * multiplicand).ToString());
     }
