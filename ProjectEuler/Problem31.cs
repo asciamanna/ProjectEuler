@@ -18,10 +18,22 @@ namespace ProjectEuler {
   }
 
   public class Problem31 : Problem {
-    //http://www.algorithmist.com/index.php/Coin_Change
-    List<string> combinations;
+    /*http://www.algorithmist.com/index.php/Coin_Change
+     * Coin Change algorithm:
+     * C(N,m) = C(N,m - 1) + C(N - Sm,m)
+     * N = integer value trying to be found.
+     * m = index of list of coins
+     * base cases:
+     * C(N,m) = 1,N = 0
+     * C(N,m) = 0,N < 0
+     * C(N,m) = 0, N >= 1, m <=0
+     */
+    List<BritishCoins> allCoins = new List<BritishCoins> { BritishCoins.OnePence, BritishCoins.TwoPence, BritishCoins.FivePence,
+                                              BritishCoins.TenPence, BritishCoins.TwentyPence, BritishCoins.FiftyPence,
+                                              BritishCoins.OnePound, BritishCoins.TwoPound };
     int amountToFind;
     int numberOfCombinations;
+
     public Problem31()
       : this(200) {
       numberOfCombinations = 0;
@@ -32,10 +44,15 @@ namespace ProjectEuler {
     }
 
     public override long Solve() {
+      return CountCombinations(amountToFind, allCoins.Count - 1);
+    }
 
-      var allCoins = new List<BritishCoins> { BritishCoins.TwoPound, BritishCoins.OnePound, BritishCoins.FiftyPence,
-        BritishCoins.TwentyPence, BritishCoins.TenPence, BritishCoins.FivePence, BritishCoins.TwoPence, BritishCoins.OnePence };
-      return 0;
+    long CountCombinations(int n, int m) {
+      if (n == 0) return 1;
+      if (n < 0) return 0;
+      if (m < 0 && n >= 1) return 0;
+        
+      return CountCombinations(n - (int)allCoins[m], m) + CountCombinations(n, m - 1);
     }
   }
 }
