@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System;
@@ -32,12 +31,9 @@ namespace ProjectEuler {
                                               BritishCoins.TenPence, BritishCoins.TwentyPence, BritishCoins.FiftyPence,
                                               BritishCoins.OnePound, BritishCoins.TwoPound };
     int amountToFind;
-    int numberOfCombinations;
 
     public Problem31()
-      : this(200) {
-      numberOfCombinations = 0;
-    }
+      : this(200) { }
 
     public Problem31(int amountToFind) {
       this.amountToFind = amountToFind;

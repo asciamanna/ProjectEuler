@@ -18,5 +18,11 @@ namespace ProjectEulerTests {
     public void Factorial4() {
       Assert.AreEqual(new BigInteger(24), EulerMath.Factorial(4));
     }
+
+    [Test]
+    public void GreatestCommonFactor() {
+      Assert.AreEqual(8, EulerMath.GreatestCommonFactor(8, 16));
+      Assert.AreEqual(1, EulerMath.GreatestCommonFactor(7, 51));
+    }
   }
 }
