@@ -55,6 +55,7 @@
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Factors.cs" />
     <Compile Include="FibonacciSequence.cs" />
+    <Compile Include="Fraction.cs" />
     <Compile Include="Primes.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Problem1.cs" />

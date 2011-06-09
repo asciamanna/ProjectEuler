@@ -48,6 +48,7 @@
     <Compile Include="EulerMathTest.cs" />
     <Compile Include="ExtensionMethodsTest.cs" />
     <Compile Include="FactorsTest.cs" />
+    <Compile Include="FractionTest.cs" />
     <Compile Include="PrimeGeneratorTest.cs" />
     <Compile Include="Problem10Test.cs" />
     <Compile Include="Problem11Test.cs" />
