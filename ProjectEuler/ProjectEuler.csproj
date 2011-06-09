@@ -56,6 +56,7 @@
     <Compile Include="Factors.cs" />
     <Compile Include="FibonacciSequence.cs" />
     <Compile Include="Fraction.cs" />
+    <Compile Include="Permutations.cs" />
     <Compile Include="Primes.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Problem1.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Problem32.cs" />
     <Compile Include="Problem33.cs" />
     <Compile Include="Problem34.cs" />
+    <Compile Include="Problem35.cs" />
     <Compile Include="Problem4.cs" />
     <Compile Include="Problem6.cs" />
     <Compile Include="Problem67.cs" />
