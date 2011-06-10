@@ -24,6 +24,9 @@ namespace ProjectEuler {
       var permutations = new List<long>();
       int i = 0;
       var listofChars = number.ToString().ToList();
+      
+      if (listofChars.Count == 1) return new List<long> {number};
+
       while (i < listofChars.Count) {
         for (int j = 0; j < listofChars.Count - 1; j++) {
           listofChars = swap(listofChars, j, j + 1);
@@ -38,6 +41,27 @@ namespace ProjectEuler {
       T nextItem = list[j];
       list[j] = list[i];
       list[i] = nextItem;
+      return list;
+    }
+
+    public static List<long> GenerateNumberRotations(long number) {
+      var rotations = new List<long>();
+      var listOfChars = number.ToString().ToList();
+
+      int i = 0;
+      while (i < listOfChars.Count) {
+        listOfChars = RotateOnce(listOfChars);
+        rotations.Add(long.Parse(new String(listOfChars.ToArray())));
+        i++;
+      }
+      return rotations;
+    }
+
+
+    static List<char> RotateOnce(List<char> list) {
+      var firstElement = list[0];
+      list.RemoveAt(0);
+      list.Add(firstElement);
       return list;
     }
   }

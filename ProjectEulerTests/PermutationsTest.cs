@@ -21,5 +21,16 @@ namespace ProjectEulerTests {
       var permutations = Permutations.GenerateForNumbers(123);
       Assert.AreEqual(6, permutations.Count);
     }
+
+    [Test]
+    public void GenerateForNumbers_OneNumber() {
+      Assert.AreEqual(1, Permutations.GenerateForNumbers(1).Count);
+    }
+
+    [Test]
+    public void Rotations() {
+      var rotations = Permutations.GenerateNumberRotations(197);
+      Assert.AreEqual(3, rotations.Count);
+    }
   }
 }

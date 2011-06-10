@@ -16,16 +16,18 @@ namespace ProjectEuler {
       var primesLookup = Primes.BuildPrimesLookup(max);
       foreach (var prime in primesLookup.Keys) {
         if (PossibleCircularPrime(prime)) {
-          var permutations = Permutations.GenerateForNumbers(prime);
-          if (permutations.All(p => primesLookup.ContainsKey(p))) circularPrimeCount++;
+          var rotations = Permutations.GenerateNumberRotations(prime);
+          if (rotations.All(p => primesLookup.ContainsKey(p))) circularPrimeCount++;
         }
       }
       return circularPrimeCount;
     }
 
     bool PossibleCircularPrime(long prime) {
+      if (prime < 10) return prime.IsOdd() || prime == 2;
+
       var primeString = prime.ToString();
-      return primeString.All(ps => int.Parse(ps.ToString()).IsOdd() || ps == '2');
+      return primeString.All(ps => int.Parse(ps.ToString()).IsOdd());
     }
   }
 }
