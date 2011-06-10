@@ -28,6 +28,22 @@ namespace ProjectEuler {
       return isPrime;
     }
 
+    public static Dictionary<long, bool> BuildPrimesLookup(int max) {
+      var primeCandidates = new BitArray(max + 1, true);
+      var primes = new Dictionary<long, bool> { { 2, true } };
+
+      for (int i = 3; i < max; i += 2) {
+        if (primeCandidates[i]) {
+          if (i < Math.Sqrt(max)) {
+            for (int j = i * i; j <= max; j += i * 2)
+              primeCandidates[j] = false;
+          }
+          primes.Add((long)i, true);
+        }
+      }
+      return primes;
+    }
+
     public static IEnumerable<long> CalculatePrimesBelow(int max) {
       var primeCandidates = new BitArray(max + 1, true);
       var primes = new List<long> { 2 };

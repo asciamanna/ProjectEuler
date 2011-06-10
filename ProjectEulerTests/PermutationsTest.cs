@@ -10,9 +10,15 @@ namespace ProjectEulerTests {
   public class PermutationsTest {
     [Test]
     public void Generate() {
-      var permutations = Permutations<char>.Generate(new List<char> { 'a', 'b', 'c' });
+      var permutations = Permutations.Generate(new List<char> { 'a', 'b', 'c' });
       Assert.Contains(new List<char> { 'a', 'b', 'c' }, permutations);
       Assert.Contains(new List<char> { 'b', 'a', 'c' }, permutations);
+      Assert.AreEqual(6, permutations.Count);
+    }
+
+    [Test]
+    public void GenerateForNumbers() {
+      var permutations = Permutations.GenerateForNumbers(123);
       Assert.AreEqual(6, permutations.Count);
     }
   }

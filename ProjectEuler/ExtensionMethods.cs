@@ -9,7 +9,15 @@ namespace ProjectEuler {
       return(n & 1) == 0;
     }
 
+    public static bool IsEven(this int n) {
+      return (n & 1) == 0;
+    }
+
     public static bool IsOdd(this long n) {
+      return (n & 1) != 0;
+    }
+
+    public static bool IsOdd(this int n) {
       return (n & 1) != 0;
     }
 
