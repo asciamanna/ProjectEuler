@@ -90,6 +90,7 @@
     <Compile Include="Problem8Test.cs" />
     <Compile Include="Problem9Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TruncateTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjectEuler\ProjectEuler.csproj">
