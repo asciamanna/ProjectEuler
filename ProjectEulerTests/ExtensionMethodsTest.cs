@@ -14,5 +14,16 @@ namespace ProjectEulerTests {
       Assert.IsFalse(70123.IsPandigital());
       Assert.IsFalse(48436.IsPandigital());
     }
+
+    [Test]
+    public void ToBinary() {
+      Assert.AreEqual(1001001001, 585.ToBinary());
+    }
+
+    [Test]
+    public void IsPalindromic() {
+      Assert.IsTrue(8778778.IsPalindromic());
+      Assert.IsFalse(123987.IsPalindromic());
+    }
   }
 }

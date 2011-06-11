@@ -44,6 +44,18 @@ namespace ProjectEuler {
       return digits.Count == number.ToString().Length;
     }
 
+    public static string ToBinary(this int number) {
+      return Convert.ToString(number, 2);
+    }
+
+    public static bool IsPalindromic(this int number) {
+      var numberString = number.ToString();
+      return numberString == new String(numberString.Reverse().ToArray());
+    }
+
+    public static bool IsPalindromic(this string number) {
+      return number == new String(number.Reverse().ToArray());
+    }
   
   }
 }
