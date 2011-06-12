@@ -17,7 +17,7 @@ namespace ProjectEulerTests {
 
     [Test]
     public void ToBinary() {
-      Assert.AreEqual(1001001001, 585.ToBinary());
+      Assert.AreEqual("1001001001", 585.ToBinary());
     }
 
     [Test]

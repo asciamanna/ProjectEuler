@@ -22,7 +22,7 @@ namespace ProjectEuler {
       //n^2 - m^2, 2mn, and n^2 + m^2
       //where m < n
       //http://www.math.uic.edu/~fields/puzzle/triples.html
-      return new PythagoreanTriple((int)(Math.Pow(n, 2) - Math.Pow(m, 2)), 2 * m * n, (int)(Math.Pow(n, 2) + Math.Pow(m, 2)));
+      return new PythagoreanTriple(n * n - m * m, 2 * m * n, n * n + m * m);
     }
   }
 }
