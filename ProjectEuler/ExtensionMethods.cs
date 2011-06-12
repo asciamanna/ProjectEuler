@@ -56,6 +56,10 @@ namespace ProjectEuler {
     public static bool IsPalindromic(this string number) {
       return number == new String(number.Reverse().ToArray());
     }
+
+    public static long Concat(this long number, long append) {
+      return long.Parse(number.ToString() + append.ToString());
+    }
   
   }
 }
