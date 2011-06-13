@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Numerics;
 
 namespace ProjectEuler {
   public static class ExtensionMethods {
@@ -59,6 +60,10 @@ namespace ProjectEuler {
 
     public static long Concat(this long number, long append) {
       return long.Parse(number.ToString() + append.ToString());
+    }
+
+    public static BigInteger Concat(this BigInteger number, int append) {
+      return BigInteger.Parse(number.ToString() + append.ToString());
     }
   
   }

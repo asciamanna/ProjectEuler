@@ -45,7 +45,8 @@ namespace ProjectEuler {
       //new Problem36().SolveToConsole();
       //new Problem37().SolveToConsole();
       //new Problem38().SolveToConsole();
-      new Problem39().SolveToConsole();
+      //new Problem39().SolveToConsole();
+      new Problem40().SolveToConsole();
       }
   }
 }
