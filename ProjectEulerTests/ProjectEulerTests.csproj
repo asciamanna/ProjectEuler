@@ -49,6 +49,7 @@
     <Compile Include="ExtensionMethodsTest.cs" />
     <Compile Include="FactorsTest.cs" />
     <Compile Include="FractionTest.cs" />
+    <Compile Include="PandigitalsTest.cs" />
     <Compile Include="PermutationsTest.cs" />
     <Compile Include="PrimeGeneratorTest.cs" />
     <Compile Include="Problem10Test.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Problem39Test.cs" />
     <Compile Include="Problem3Test.cs" />
     <Compile Include="Problem40Test.cs" />
+    <Compile Include="Problem41Test.cs" />
     <Compile Include="Problem4Test.cs" />
     <Compile Include="Problem5Test.cs" />
     <Compile Include="Problem67Test.cs" />
