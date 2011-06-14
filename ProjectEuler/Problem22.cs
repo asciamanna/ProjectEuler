@@ -26,13 +26,9 @@ namespace ProjectEuler {
     int CalculateAlphabeticalValue(string name) {
       int alphabeticalValue = 0;
       foreach (char c in name.ToUpper()) {
-        alphabeticalValue += AsciiToAlphabeticalPosition(c);
+        alphabeticalValue += c.ToAlphabeticalPosition();
       }
       return alphabeticalValue;
-    }
-
-    int AsciiToAlphabeticalPosition(char c) {
-      return c - 64;
     }
   }
 }

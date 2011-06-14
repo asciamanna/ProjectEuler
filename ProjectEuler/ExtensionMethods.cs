@@ -65,6 +65,10 @@ namespace ProjectEuler {
     public static BigInteger Concat(this BigInteger number, int append) {
       return BigInteger.Parse(number.ToString() + append.ToString());
     }
+
+    public static int ToAlphabeticalPosition(this char letter) {
+      return letter - 64;
+    }
   
   }
 }
