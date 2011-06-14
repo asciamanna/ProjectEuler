@@ -29,17 +29,28 @@ namespace ProjectEuler {
     }
 
     public static bool IsPandigital(this int number) {
-      return PandigitalCheck(number);
+      return PandigitalCheck(number, false);
     }
 
     public static bool IsPandigital(this long number) {
-      return PandigitalCheck(number);
+      return PandigitalCheck(number, false);
     }
 
-    private static bool PandigitalCheck(long number) {
+    public static bool IsZeroToNPandigital(this int number) {
+      return PandigitalCheck(number, true);
+    }
+
+    public static bool IsZeroToNPandigital(this long number) {
+      return PandigitalCheck(number, true);
+    }
+
+    private static bool PandigitalCheck(long number, bool includeZero) {
+      if (includeZero && !number.ToString().Contains('0')) return false;
       var digits = new HashSet<char>();
       foreach (var digit in number.ToString()) {
-        if (digit == '0') return false;
+        if (!includeZero) {
+          if (digit == '0') return false;
+        }
         digits.Add(digit);
       }
       return digits.Count == number.ToString().Length;

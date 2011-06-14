@@ -15,6 +15,11 @@ namespace ProjectEulerTests {
       Assert.IsFalse(48436.IsPandigital());
     }
 
+    public void IsZeroToNPandigital() {
+      Assert.IsTrue(10234.IsZeroToNPandigital());
+      Assert.IsFalse(1234.IsZeroToNPandigital());
+    }
+
     [Test]
     public void ToBinary() {
       Assert.AreEqual("1001001001", 585.ToBinary());
