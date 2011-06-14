@@ -9,22 +9,15 @@ namespace ProjectEulerTests {
   [TestFixture]
   public class PermutationsTest {
     [Test]
-    public void Generate() {
-      var permutations = Permutations.Generate(new List<char> { 'a', 'b', 'c' });
-      Assert.Contains(new List<char> { 'a', 'b', 'c' }, permutations);
-      Assert.Contains(new List<char> { 'b', 'a', 'c' }, permutations);
+    public void Generate_Numbers_3digits() {
+      var permutations = Permutations.Generate(123);
       Assert.AreEqual(6, permutations.Count);
     }
 
     [Test]
-    public void GenerateForNumbers() {
-      var permutations = Permutations.GenerateForNumbers(123);
-      Assert.AreEqual(6, permutations.Count);
-    }
-
-    [Test]
-    public void GenerateForNumbers_OneNumber() {
-      Assert.AreEqual(1, Permutations.GenerateForNumbers(1).Count);
+    public void Generate_Numbers_4digits() {
+      var permutations = Permutations.Generate(1234);
+      Assert.AreEqual(24, permutations.Count);
     }
 
     [Test]

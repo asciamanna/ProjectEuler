@@ -11,7 +11,7 @@ namespace ProjectEuler {
       foreach (var number in numbers) {
         numberString += number;
       }
-      return Permutations.GenerateForNumbers(long.Parse(numberString));
+      return Permutations.Generate(long.Parse(numberString));
     }
   }
 }
