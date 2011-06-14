@@ -14,10 +14,10 @@ namespace ProjectEuler {
     public override long Solve() {
       long circularPrimeCount = 0;
       var primesLookup = Primes.BuildPrimesLookup(max);
-      foreach (var prime in primesLookup.Keys) {
+      foreach (var prime in primesLookup) {
         if (PossibleCircularPrime(prime)) {
           var rotations = Permutations.GenerateNumberRotations(prime);
-          if (rotations.All(p => primesLookup.ContainsKey(p))) circularPrimeCount++;
+          if (rotations.All(p => primesLookup.Contains(p))) circularPrimeCount++;
         }
       }
       return circularPrimeCount;

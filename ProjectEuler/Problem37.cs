@@ -11,12 +11,12 @@ namespace ProjectEuler {
       long sum = 0;
       var primes = Primes.BuildPrimesLookup(1000000);
 
-      foreach(var prime in primes.Keys) {
+      foreach(var prime in primes) {
         bool truncatable = true;
         if (PossibleTruncatablePrime(prime)) {
           var leftToRightTruncate = new Truncate(prime, TruncateMethod.LeftToRight);
           while (leftToRightTruncate.CanTruncate()) {
-            if (!primes.ContainsKey(leftToRightTruncate.NextValue())) {
+            if (!primes.Contains(leftToRightTruncate.NextValue())) {
               truncatable = false;
               break;
             }
@@ -24,7 +24,7 @@ namespace ProjectEuler {
 
           var rightToLeftTruncate = new Truncate(prime, TruncateMethod.RightToLeft);
           while (rightToLeftTruncate.CanTruncate()) {
-            if (!primes.ContainsKey(rightToLeftTruncate.NextValue())) {
+            if (!primes.Contains(rightToLeftTruncate.NextValue())) {
               truncatable = false;
               break;
             }
