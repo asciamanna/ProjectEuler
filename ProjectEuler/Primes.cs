@@ -6,16 +6,6 @@ using System.Collections;
 
 namespace ProjectEuler {
   public static class Primes {
-    [Obsolete]
-    public static List<long> OldPrimeGenerator(long primesBelow) {
-      var primes = new List<long> { 2 };
-
-      for (long i = 3; i <= primesBelow; i += 2) {
-        if (IsPrime(i, primes)) primes.Add(i);
-      }
-      return primes;
-    }
-
     static bool IsPrime(long num, List<long> primesSoFar) {
       bool isPrime = true;
 
