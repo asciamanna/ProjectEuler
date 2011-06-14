@@ -9,7 +9,7 @@ namespace ProjectEuler {
 
     public override long Solve() {
       long sum = 0;
-      var primes = Primes.BuildPrimesLookup(1000000);
+      var primes = Primes.CalculatePrimesBelow(1000000);
 
       foreach(var prime in primes) {
         bool truncatable = true;

@@ -20,7 +20,7 @@ namespace ProjectEuler {
     //must be of the form 3 digits * 2 digits = 4 digits
     // or                 1 digit * 4 digits = 4 digits
 
-    SortedSet<int> pandigitalProducts = new SortedSet<int>();
+    HashSet<int> pandigitalProducts = new HashSet<int>();
 
     public override long Solve() {
       var twoDigitRange = Enumerable.Range(MIN_TWO_DIGIT_PANDIGITAL, MAX_TWO_DIGIT_PANDIGITAL - MIN_TWO_DIGIT_PANDIGITAL + 1);

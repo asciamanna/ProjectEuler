@@ -13,7 +13,7 @@ namespace ProjectEuler {
     }
     public override long Solve() {
       long circularPrimeCount = 0;
-      var primesLookup = Primes.BuildPrimesLookup(max);
+      var primesLookup = Primes.CalculatePrimesBelow(max);
       foreach (var prime in primesLookup) {
         if (PossibleCircularPrime(prime)) {
           var rotations = Permutations.GenerateNumberRotations(prime);

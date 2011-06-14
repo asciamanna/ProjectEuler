@@ -18,7 +18,7 @@ namespace ProjectEuler {
       return isPrime;
     }
 
-    public static HashSet<long> BuildPrimesLookup(int max) {
+    public static HashSet<long> CalculatePrimesBelow(int max) {
       var primeCandidates = new BitArray(max + 1, true);
       var primes = new HashSet<long> { 2 };
 
@@ -26,21 +26,6 @@ namespace ProjectEuler {
         if (primeCandidates[i]) {
           if (i < Math.Sqrt(max)) {
             for (int j = i * i; j <= max; j += i * 2)
-              primeCandidates[j] = false;
-          }
-          primes.Add((long)i);
-        }
-      }
-      return primes;
-    }
-
-    public static IEnumerable<long> CalculatePrimesBelow(int max) {
-      var primeCandidates = new BitArray(max + 1, true);
-      var primes = new List<long> { 2 };
-      for (int i = 3; i < max; i += 2) {
-        if (primeCandidates[i]) {
-          if (i < Math.Sqrt(max)) {
-            for (int j = i * i; j <= max; j += i*2)
               primeCandidates[j] = false;
           }
           primes.Add((long)i);

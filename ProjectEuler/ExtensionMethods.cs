@@ -37,7 +37,7 @@ namespace ProjectEuler {
     }
 
     private static bool PandigitalCheck(long number) {
-      var digits = new SortedSet<char>();
+      var digits = new HashSet<char>();
       foreach (var digit in number.ToString()) {
         if (digit == '0') return false;
         digits.Add(digit);
