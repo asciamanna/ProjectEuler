@@ -6,13 +6,13 @@ using System.Text;
 namespace ProjectEuler {
   public static class Permutations {
     
-    public static List<long> Generate(long number) {
-      var perms = new List<long>();
+    public static HashSet<long> Generate(long number) {
+      var perms = new HashSet<long>();
       GeneratePerms("", number.ToString(), perms);
       return perms;
     }
 
-    static void GeneratePerms(string beginning, string shuffle, List<long> perms) {
+    static void GeneratePerms(string beginning, string shuffle, HashSet<long> perms) {
       if (shuffle.Length <= 1)
         perms.Add(long.Parse(beginning + shuffle));
       else {
