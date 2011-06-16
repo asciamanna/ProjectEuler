@@ -80,6 +80,11 @@ namespace ProjectEuler {
     public static int ToAlphabeticalPosition(this char letter) {
       return letter - 64;
     }
+
+    public static bool IsPentagonal(this long number) {
+      double check =  (Math.Sqrt(24 * number + 1) + 1) / 6;
+      return check % 1 == 0;
+    }
   
   }
 }

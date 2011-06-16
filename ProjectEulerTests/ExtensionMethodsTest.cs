@@ -30,5 +30,11 @@ namespace ProjectEulerTests {
       Assert.IsTrue(8778778.IsPalindromic());
       Assert.IsFalse(123987.IsPalindromic());
     }
+
+    [Test]
+    public void IsPentagonal() {
+      Assert.IsTrue(((long)145).IsPentagonal());
+      Assert.IsFalse(((long)4).IsPentagonal());
+    }
   }
 }
