@@ -89,6 +89,7 @@
     <Compile Include="Problem41Test.cs" />
     <Compile Include="Problem42Test.cs" />
     <Compile Include="Problem43Test.cs" />
+    <Compile Include="Problem44Test.cs" />
     <Compile Include="Problem4Test.cs" />
     <Compile Include="Problem5Test.cs" />
     <Compile Include="Problem67Test.cs" />
