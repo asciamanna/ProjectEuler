@@ -82,10 +82,57 @@ namespace ProjectEuler {
     }
 
     public static bool IsPentagonal(this long number) {
-      double check =  (Math.Sqrt(24 * number + 1) + 1) / 6;
-      return check % 1 == 0;
+      //http://en.wikipedia.org/wiki/Pentagonal_number
+
+      double n = (Math.Sqrt(24 * number + 1) + 1) / 6;
+      return n % 1 == 0;
     }
-  
+
+    public static bool IsHexagonal(this long number) {
+      //http://en.wikipedia.org/wiki/Hexagonal_number
+
+      double n = (Math.Sqrt(8 * number + 1) + 1) / 4;
+      return n % 1 == 0;
+    }
+
+    public static bool IsPentagonal(this BigInteger number) {
+      //http://en.wikipedia.org/wiki/Pentagonal_number
+
+      decimal n = (decimal)(Sqrt(24 * number + 1) / 6);
+      return n % 1 == 0;
+    }
+
+    public static bool IsHexagonal(this BigInteger number) {
+      //http://en.wikipedia.org/wiki/Hexagonal_number
+
+      decimal n = (decimal)((Sqrt(8 * number + 1) + 1) / 4);
+      return n % 1 == 0;
+    }
+
+   // http://community.devexpress.com/blogs/paulk/archive/2010/08/14/really-really-big-numbers-with-biginteger-in-net-4-0.aspx
+   public static BigInteger Sqrt(BigInteger number) {
+      // problem with lower numbers to to right bit shift
+      int bitLength = number.ToByteArray().Length * 8 + 1;
+      BigInteger G = number >> bitLength / 2;
+      BigInteger LastG = BigInteger.Zero;
+      BigInteger One = new BigInteger(1);
+      while (true) {
+        LastG = G;
+        G = (number / G + G) >> 1;
+        int i = G.CompareTo(LastG);
+        if (i == 0) return G;
+        if (i < 0) {
+          if ((LastG - G).CompareTo(One) == 0)
+            if ((G * G).CompareTo(number) < 0 &&
+              (LastG * LastG).CompareTo(number) > 0) return G;
+        }
+        else {
+          if ((G - LastG).CompareTo(One) == 0)
+            if ((LastG * LastG).CompareTo(number) < 0 &&
+              ((G * G).CompareTo(number) > 0)) return LastG;
+        }
+      }
+    }
   }
 }
 

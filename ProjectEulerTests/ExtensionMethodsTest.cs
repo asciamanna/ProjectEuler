@@ -35,6 +35,16 @@ namespace ProjectEulerTests {
     public void IsPentagonal() {
       Assert.IsTrue(((long)145).IsPentagonal());
       Assert.IsFalse(((long)4).IsPentagonal());
+      Assert.IsTrue(((long)40755).IsPentagonal());
+      Assert.IsTrue(((long)1533776805).IsPentagonal());
+    }
+
+    [Test]
+    public void IsHexagonal() {
+      Assert.IsTrue(((long)45).IsHexagonal());
+      Assert.IsFalse(((long)32).IsHexagonal());
+      Assert.IsTrue(((long)40755).IsHexagonal());
+      Assert.IsTrue(((long)1533776805).IsHexagonal());
     }
   }
 }
