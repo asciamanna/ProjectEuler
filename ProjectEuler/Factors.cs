@@ -22,10 +22,26 @@ namespace ProjectEuler {
 
     public static List<long> GetFactors(long number) {
       var factors = new List<long> { 1, number };
-      for(int i = 2; i < number; i++) {
+      for (int i = 2; i < number; i++) {
         if (number % i == 0) factors.Add(i);
       }
       return factors;
+    }
+
+    public static HashSet<long> CalculateDistinctPrimeFactors(int number) {
+      var primes = Primes.CalculatePrimesBelow(number + 1);
+      var primeFactors = new HashSet<long>();
+      return PrimeFactors(number, primes, primeFactors);
+    }
+
+    static HashSet<long> PrimeFactors(int number, IEnumerable<long> primes, HashSet<long> primeFactors) {
+      foreach (var prime in primes) {
+        if (number % prime == 0) {
+          primeFactors.Add(prime);
+          PrimeFactors((int)(number / prime), primes.Where(p => p < number), primeFactors);
+        }
+      }
+      return primeFactors;
     }
 
     [Obsolete]
@@ -62,7 +78,7 @@ namespace ProjectEuler {
         if (p == 2) p = 3;
         else p += 2;
       }
-      if (number>1) sum*=(number+1);
+      if (number > 1) sum *= (number + 1);
       return sum;
     }
 

@@ -14,5 +14,10 @@ namespace ProjectEulerTests {
       var properDivisors = Factors.CalculateProperDivisors(220);
       CollectionAssert.AreEqual(expectedDivisors, properDivisors);
     }
+
+    [Test]
+    public void CalculateDistinctPrimeFactors() {
+      Assert.AreEqual(2, Factors.CalculateDistinctPrimeFactors(20).Count);
+    }
   }
 }
