@@ -14,8 +14,8 @@ namespace ProjectEuler {
       foreach (var oddComposite in oddComposites) {
         bool found = false;
         for (int i = 0; i < primes.Count && primes.ElementAt(i) < oddComposite && !found; i++) {
-          long numberToBeSquared = 1;
-          while (numberToBeSquared < (oddComposite * oddComposite * 2)) {
+          int numberToBeSquared = 1;
+          while (oddComposite > Math.Abs((numberToBeSquared * numberToBeSquared * 2) - primes.ElementAt(i))) {
             if (oddComposite == primes.ElementAt(i) + (2 * numberToBeSquared * numberToBeSquared)) {
               found = true;
             }
@@ -27,7 +27,7 @@ namespace ProjectEuler {
       throw new Exception("Could not find an odd composite below " + primesBelow);
     }
 
-    private HashSet<long> BuildOddComposites(HashSet<long> primes) {
+    HashSet<long> BuildOddComposites(HashSet<long> primes) {
       var oddComposites = new HashSet<long>();
       for (int i = 33; i < primes.Max(); i+=2) {
         if (!primes.Contains(i)) oddComposites.Add(i);
