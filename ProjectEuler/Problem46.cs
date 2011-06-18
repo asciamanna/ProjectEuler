@@ -12,7 +12,7 @@ namespace ProjectEuler {
       var primes = Primes.CalculatePrimesBelow(primesBelow);
       var oddComposites = BuildOddComposites(primes);
       foreach (var oddComposite in oddComposites) {
-        bool found = false;
+        var found = false;
         for (int i = 0; i < primes.Count && primes.ElementAt(i) < oddComposite && !found; i++) {
           int numberToBeSquared = 1;
           while (oddComposite > Math.Abs((numberToBeSquared * numberToBeSquared * 2) - primes.ElementAt(i))) {
