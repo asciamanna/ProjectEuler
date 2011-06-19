@@ -29,6 +29,18 @@ namespace ProjectEuler {
     }
 
     public static HashSet<long> CalculateDistinctPrimeFactors(int number) {
+      int n = number;
+    var factors = new HashSet<long>();
+      for (int i = 2; i <= n; i++) {
+        while (n % i == 0) {
+          factors.Add(i);
+          n /= i;
+        }
+      }
+      return factors;
+    }
+
+    public static HashSet<long> CalculateDistinctPrimeFactorsSLOW(int number) {
       var primes = Primes.CalculatePrimesBelow(number + 1);
       var primeFactors = new HashSet<long>();
       return PrimeFactors(number, primes, primeFactors);

@@ -17,7 +17,7 @@ namespace ProjectEulerTests {
 
     [Test]
     public void CalculateDistinctPrimeFactors() {
-      Assert.AreEqual(2, Factors.CalculateDistinctPrimeFactors(20).Count);
+      Assert.AreEqual(2, Factors.CalculateDistinctPrimeFactorsSLOW(20).Count);
     }
   }
 }
