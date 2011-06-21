@@ -16,7 +16,7 @@ namespace ProjectEuler {
       int longestNumberOfAddends = 0;
       long primeWithLongestSumOfConsecutivePrimes = 0;
       var primes = Primes.CalculatePrimesBelow(primeBelow).ToList();
-      var maxPrime = primes.Max();
+      var maxPrime = primes.Last();
       
       for (int primeIndex = 0; primeIndex < primes.Count; primeIndex++) {
         int numberOfAddends = 0;
@@ -34,34 +34,5 @@ namespace ProjectEuler {
       }
       return primeWithLongestSumOfConsecutivePrimes;
     }
-
-    //public override long Solve() {
-    //  var longestSum = 0;
-    //  long primeWithLongestSumOfConsecutivePrimes = 0;
-
-    //  var primes = Primes.CalculatePrimesBelow(primeBelow);
-    //  var primesList = primes.ToList();
-
-    //  foreach (var prime in primes) {
-    //    long difference = prime;
-    //    var currentSum = 0;
-    //    for (int i = 0; i < primesList.Count; i++) {
-    //      difference -= primesList[i];
-    //      if (difference > 0) {
-    //        currentSum++;
-    //      }
-    //      else if (difference == 0) {
-    //        if (currentSum > longestSum) {
-    //          longestSum = currentSum;
-    //          primeWithLongestSumOfConsecutivePrimes = prime;
-    //        }
-    //      }
-    //      else {
-    //        break;
-    //      }
-    //    }
-    //  }
-    //  return primeWithLongestSumOfConsecutivePrimes;
-    //}
   }
 }
