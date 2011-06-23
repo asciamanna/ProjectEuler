@@ -7,55 +7,25 @@ namespace ProjectEuler {
   class Program {
     [STAThread] // for OLE
     static void Main(string[] args) {
-      //new Problem1(1000).SolveToConsole();
-      //new Problem2().SolveToConsole();
-      //new Problem3(600851475143).SolveToConsole();
-      //new Problem4(3).SolveToConsole();
-      //new Problem5(1, 20).SolveToConsole();
-      //new Problem6(100).SolveToConsole();
-      //new Problem7(10001).SolveToConsole();
-      //new Problem8().SolveToConsole();
-      //new Problem9().SolveToConsole();
-      //new Problem10(2000000).SolveToConsole();
-      //new Problem11().SolveToConsole();
-      //new Problem12(500).SolveToConsole();
-      //new Problem13().SolveToConsole();
-      //new Problem14(1000000).SolveToConsole();
-      //new Problem15(20).SolveToConsole();
-      //new Problem16(2, 1000).SolveToConsole();
-      //new Problem17(1, 1000).SolveToConsole();
-      //new Problem18().SolveToConsole();
-      //new Problem67().SolveToConsole();
-      //new Problem20(100).SolveToConsole();
-      //new Problem21().SolveToConsole();
-      //new Problem22().SolveToConsole();
-      //new Problem23().SolveToConsole();
-      //new Problem24().SolveToConsole();
-     // new Problem25().SolveToConsole();
-      //new Problem26(1000).SolveToConsole();
-      //new Problem27().SolveToConsole();
-      //new Problem28(1001).SolveToConsole();
-      //new Problem29().SolveToConsole();
-      //new Problem30().SolveToConsole();
-      //new Problem31().SolveToConsole();
-      //new Problem32().SolveToConsole();
-      //new Problem33().SolveToConsole();
-      //new Problem34().SolveToConsole();
-      //new Problem35().SolveToConsole();
-      //new Problem36().SolveToConsole();
-      //new Problem37().SolveToConsole();
-      //new Problem38().SolveToConsole();
-      //new Problem39().SolveToConsole();
-      //new Problem40().SolveToConsole();
-      //new Problem41().SolveToConsole();
-      //new Problem43().SolveToConsole();
-      //new Problem44().SolveToConsole();
-      //new Problem45().SolveToConsole();
-      //new Problem46().SolveToConsole();
-      //new Problem47().SolveToConsole();
-      //new Problem48().SolveToConsole();
-      new Problem49().SolveToConsole();
-      //new Problem50().SolveToConsole();
+      bool kill = false;
+
+      while (!kill) {
+        Console.Write("Which Project Euler problem do you want to solve (Enter a for all): ");
+        var input = Console.ReadLine().Trim();
+        int problemToRun = 0;
+        if (input.ToLower() == "a") {
+          new ProblemRunner().Run();
+        }
+        else if (input.ToLower().StartsWith("slowest")) {
+          //print slowest to screen and file
+        }
+        else if (int.TryParse(input, out problemToRun)) {
+          new ProblemRunner(problemToRun).Run();
+        }
+        else if (input.ToLower().StartsWith("kill") || input.ToLower().StartsWith("q")) {
+          kill = true;
+        }
       }
+    }
   }
 }

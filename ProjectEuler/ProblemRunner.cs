@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Reflection;
 using System.IO;
-using System.Windows.Forms;
-using System;
+using System.Windows;
 
 namespace ProjectEuler {
   public class ProblemRunner {
@@ -26,7 +26,7 @@ namespace ProjectEuler {
     }
 
     public void Run() {
-      assembly = Assembly.LoadFrom(@"C:\development\ProjectEuler\ProjectEuler\bin\debug\ProjectEuler.exe");
+      assembly = Assembly.GetExecutingAssembly();
       var allProblemTypes = assembly.GetTypes()
              .Where(t => !t.IsAbstract && t.Name.ToLower().StartsWith("problem")).OrderBy(t => t.Name);
       if (runAll) {
