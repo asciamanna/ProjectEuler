@@ -13,17 +13,6 @@ namespace ProjectEuler {
       this.primeBelow = primeBelow;
     }
 
-    HashSet<long> BuildPrimeSums(HashSet<long> primes) {
-      var primeSums = new HashSet<long>();
-      var maxPrime = primes.Last();
-      long sum = 0;
-      int i = 0;
-      while (sum < maxPrime) {
-        sum += primes.ElementAt(i++);
-        primeSums.Add(sum);
-      }
-      return primeSums;
-    }
     public override long Solve() {
       int longestNumberOfAddends = 0;
       long primeWithLongestSumOfConsecutivePrimes = 0;

@@ -35,9 +35,20 @@ namespace ProjectEuler {
         }
       }
       else {
-        var type = allProblemTypes.First(t => t.Name == string.Format("Problem{0}", problemToRun));
+        var type = allProblemTypes.FirstOrDefault(t => t.Name == string.Format("Problem{0}", problemToRun));
+        if (type == null) {
+          WriteNoProblemText(problemToRun);
+        }
+        else {
         SolveProblem(type);
+        }
       }
+    }
+
+    void WriteNoProblemText(int missingProblemNumber) {
+      Console.ForegroundColor = ConsoleColor.Red;
+      Console.WriteLine(string.Format("Problem {0} does not exist.  Please select a different problem", missingProblemNumber));
+      Console.ResetColor();
     }
 
     void SolveProblem(Type type) {

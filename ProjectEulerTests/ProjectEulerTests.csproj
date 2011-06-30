@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CombinationsTest.cs" />
     <Compile Include="EulerMathTest.cs" />
     <Compile Include="ExtensionMethodsTest.cs" />
     <Compile Include="FactorsTest.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Problem4Test.cs" />
     <Compile Include="Problem50Test.cs" />
     <Compile Include="Problem52Test.cs" />
+    <Compile Include="Problem53Test.cs" />
     <Compile Include="Problem5Test.cs" />
     <Compile Include="Problem67Test.cs" />
     <Compile Include="Problem6Test.cs" />

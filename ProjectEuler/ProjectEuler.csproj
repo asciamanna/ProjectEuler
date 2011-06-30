@@ -50,6 +50,7 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Combinations.cs" />
     <Compile Include="EulerMath.cs" />
     <Compile Include="EulerProblem.cs" />
     <Compile Include="ExtensionMethods.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Problem49.cs" />
     <Compile Include="Problem50.cs" />
     <Compile Include="Problem52.cs" />
+    <Compile Include="Problem53.cs" />
     <Compile Include="Problem6.cs" />
     <Compile Include="Problem67.cs" />
     <Compile Include="Problem7.cs" />
