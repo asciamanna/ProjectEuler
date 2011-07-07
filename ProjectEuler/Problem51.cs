@@ -22,7 +22,30 @@ namespace ProjectEuler {
     }
 
     HashSet<long> FilterPrimes(int length, int sameDigits) {
+      var possiblePrimes = primes.Where(p => p.ToString().Length == 5);
+      var patters = BuildPatters(possiblePrimes, sameDigits);
+      return null;
+    }
+
+    HashSet<string> BuildPatters(IEnumerable<long> possiblePrimes, int sameDigits) {
+      var patterns = new HashSet<string>();
+      foreach (var prime in possiblePrimes) {
+        var digitCountLookup = BuildDigitCountLookup(prime);
+      }
+      return null;
+    }
+
+    public static string BuildPattern(int numberForPattern, long prime) {
       throw new NotImplementedException();
+    }
+
+    public static Dictionary<int, int> BuildDigitCountLookup(long prime) {
+      var digitCounts = new Dictionary<int, int>();
+      var primeString = prime.ToString();
+      foreach (var numberChar in primeString) {
+        digitCounts[int.Parse(numberChar.ToString())] = primeString.Count(c => c == numberChar);
+      }
+      return digitCounts;
     }
   }
 }
