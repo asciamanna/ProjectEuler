@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ProjectEuler {
   [EulerProblem(51, "Find the smallest prime which, by changing the same part of the number, can form eight different primes.")]
@@ -22,21 +23,36 @@ namespace ProjectEuler {
     }
 
     HashSet<long> FilterPrimes(int length, int sameDigits) {
-      var possiblePrimes = primes.Where(p => p.ToString().Length == 5);
-      var patters = BuildPatters(possiblePrimes, sameDigits);
-      return null;
-    }
-
-    HashSet<string> BuildPatters(IEnumerable<long> possiblePrimes, int sameDigits) {
-      var patterns = new HashSet<string>();
-      foreach (var prime in possiblePrimes) {
-        var digitCountLookup = BuildDigitCountLookup(prime);
+      var possiblePrimes = primes.Where(p => p.ToString().Length == length);
+      var patterns = BuildPatterns(possiblePrimes, sameDigits);
+      foreach (var pattern in patterns) {
+        var regEx = ConvertPatternToRegex(pattern);
       }
       return null;
     }
 
+    public static string ConvertPatternToRegex(string pattern) {
+      return Regex.Replace(pattern, @"*", @"(d{1})", RegexOptions.IgnoreCase);
+    }
+
+    //test this.  could be a problem with same digit repeated elsewhere in number.
+
+    HashSet<string> BuildPatterns(IEnumerable<long> possiblePrimes, int sameDigits) {
+      var patterns = new HashSet<string>();
+      foreach (var prime in possiblePrimes) {
+        var digitCountLookup = BuildDigitCountLookup(prime);
+        var primesWithMulitpleDigits = new List<long>();
+        for (int i = 0; i < 10; i++) {
+          if (digitCountLookup[i] > sameDigits) {
+            patterns.Add(BuildPattern(i, prime));
+          }
+        }
+      }
+      return patterns;
+    }
+
     public static string BuildPattern(int numberForPattern, long prime) {
-      throw new NotImplementedException();
+      return prime.ToString().Replace(numberForPattern.ToString().ToCharArray()[0], '*');
     }
 
     public static Dictionary<int, int> BuildDigitCountLookup(long prime) {

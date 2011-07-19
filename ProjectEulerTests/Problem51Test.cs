@@ -20,5 +20,15 @@ namespace ProjectEulerTests {
       Assert.AreEqual(3, digitsCountLookup[1]);
       Assert.AreEqual(2, digitsCountLookup[6]);
     }
+
+    [Test]
+    public void BuildPattern() {
+      Assert.AreEqual(Problem51.BuildPattern(6, 5166122), "51**122");
+    }
+
+    [Test]
+    public void ConvertPatternToRegEx() {
+      Assert.AreEqual(Problem51.ConvertPatternToRegex("51**122"), "51(d{1})(d{1})122");
+    }
   }
 }
