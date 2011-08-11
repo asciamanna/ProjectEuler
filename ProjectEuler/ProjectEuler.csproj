@@ -50,6 +50,7 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Card.cs" />
     <Compile Include="Combinations.cs" />
     <Compile Include="EulerMath.cs" />
     <Compile Include="EulerProblem.cs" />
@@ -57,8 +58,11 @@
     <Compile Include="Factors.cs" />
     <Compile Include="FibonacciSequence.cs" />
     <Compile Include="Fraction.cs" />
+    <Compile Include="HandAnalyzer.cs" />
+    <Compile Include="HandResult.cs" />
     <Compile Include="Pandigitals.cs" />
     <Compile Include="Permutations.cs" />
+    <Compile Include="PokerHand.cs" />
     <Compile Include="Primes.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Problem1.cs" />
@@ -109,6 +113,7 @@
     <Compile Include="Problem51.cs" />
     <Compile Include="Problem52.cs" />
     <Compile Include="Problem53.cs" />
+    <Compile Include="Problem54.cs" />
     <Compile Include="Problem6.cs" />
     <Compile Include="Problem67.cs" />
     <Compile Include="Problem7.cs" />
@@ -129,6 +134,7 @@
     <Content Include="Data\Problem42\words.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Data\Problem54\poker.txt" />
     <Content Include="Data\Problem67\triangle.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
