@@ -5,7 +5,10 @@ using System.Text;
 
 namespace ProjectEuler {
   public class PokerHand {
-    HashSet<CardRank> rankSet;
+    Dictionary<CardRank, int> rankLookup;
+    //key: rank, value: number of occurrences in hand
+    Dictionary<CardSuit, int> suitLookup;
+    //key: suit, value: number of occurerences in hand
 
     public PokerHand(string player, IEnumerable<Card> cards) {
       Player = player;
@@ -13,16 +16,34 @@ namespace ProjectEuler {
       if (cards.Count() > 5) {
         throw new ArgumentException("Only 5 cards per poker hand");
       }
-      rankSet = new HashSet<CardRank>();
-      BuildRankSet();
+      rankLookup = new Dictionary<CardRank, int>();
+      BuildRankLookup();
+      suitLookup = new Dictionary<CardSuit, int>();
+      BuildSuitLookup();
     }
     public string Player { get; private set; }
     
     public IEnumerable<Card> Cards { get; private set; }
 
-    void BuildRankSet() {
+    void BuildRankLookup() {
       foreach (var rank in Cards.Select(c => c.Rank)) {
-        rankSet.Add(rank);
+        if (rankLookup.ContainsKey(rank)) {
+          rankLookup[rank] = rankLookup[rank]++;
+        }
+        else {
+          rankLookup.Add(rank, Cards.Count(c => c.Rank == rank));
+        }
+      }
+    }
+
+    void BuildSuitLookup() {
+      foreach (var suit in Cards.Select(c => c.Suit)) {
+        if (suitLookup.ContainsKey(suit)) {
+          suitLookup[suit] = suitLookup[suit]++;
+        }
+        else {
+          suitLookup.Add(suit, Cards.Count(c => c.Suit == suit));
+        }
       }
     }
 
@@ -36,22 +57,30 @@ namespace ProjectEuler {
 
     bool AllCardsSameSuit {
       get {
-        var suitSet = new HashSet<CardSuit>();
-        foreach (var suit in Cards.Select(c => c.Suit)) {
-          suitSet.Add(suit);
-        }
-        return suitSet.Count == 1;
+        return suitLookup.Count == 1;
       }
     }
 
     public bool IsFourOfAKind() {
-      return rankSet.Count == 2;
+      return rankLookup.Count == 2;
     }
 
     public CardRank HighCard {
       get {
         return Cards.Max(c => c.Rank);
       }
+    }
+
+    public bool IsThreeOfAKind() {
+      return rankLookup.Count == 3 && rankLookup.Values.Max(v => v == 3);
+    }
+
+    public bool IsTwoPairs() {
+      return rankLookup.Count == 3 && rankLookup.Values.Max(v => v == 2);
+    }
+
+    public bool IsFullHouse() {
+      return rankLookup.Count == 2 && rankLookup.Values.Max(v => v == 3);
     }
   }
 }

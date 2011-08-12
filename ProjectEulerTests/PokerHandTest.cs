@@ -32,10 +32,26 @@ namespace ProjectEulerTests {
       Assert.IsTrue(hand.IsFourOfAKind());
     }
 
-    //TODO: Left Off Here
     [Test]
     public void ThreeOfAKind() {
       var hand = PokerHandTestHelper.CreateThreeOfAKindHand("Lily");
+      Assert.IsTrue(hand.IsThreeOfAKind());
+      Assert.IsFalse(hand.IsTwoPairs());
+      Assert.IsFalse(hand.IsFullHouse());
+    }
+
+    [Test]
+    public void TwoPairs() {
+      var hand = PokerHandTestHelper.CreateTwoPairsHand("Thing");
+      Assert.IsTrue(hand.IsTwoPairs());
+      Assert.IsFalse(hand.IsThreeOfAKind());
+    }
+
+    [Test]
+    public void FullHouse() {
+      var hand = PokerHandTestHelper.CreateFullHouseHand("Lurch");
+      Assert.IsTrue(hand.IsFullHouse());
+      Assert.IsFalse(hand.IsThreeOfAKind());
     }
   }
 }

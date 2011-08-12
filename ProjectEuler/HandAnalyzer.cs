@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+  //TODO: Rename Class to PokerGame
   public class HandAnalyzer {
     readonly PokerHand hand1;
     readonly PokerHand hand2;
@@ -16,6 +17,7 @@ namespace ProjectEuler {
       this.hand1 = hand1;
       this.hand2 = hand2;
     }
+    //TODO: Rename PlayHand
     public HandResult CalculateWinner() {
       return new HandResult(string.Empty, HandRankResult.Two_Pairs);
     }

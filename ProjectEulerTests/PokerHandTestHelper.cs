@@ -40,8 +40,37 @@ namespace ProjectEulerTests {
       return new PokerHand(playerName, cards);
     }
 
-    internal static object CreateThreeOfAKindHand(string p) {
-      throw new NotImplementedException();
+    public static PokerHand CreateThreeOfAKindHand(string playerName) {
+      var cards = new List<Card> { 
+        new Card(CardRank.Three, CardSuit.Diamonds),
+        new Card(CardRank.Five, CardSuit.Hearts),
+        new Card(CardRank.Three, CardSuit.Clubs),
+        new Card(CardRank.Six, CardSuit.Spades),
+        new Card(CardRank.Three, CardSuit.Hearts) 
+      };
+      return new PokerHand(playerName, cards);
+    }
+
+    public static PokerHand CreateTwoPairsHand(string playerName) {
+      var cards = new List<Card> { 
+        new Card(CardRank.King, CardSuit.Diamonds),
+        new Card(CardRank.King, CardSuit.Hearts),
+        new Card(CardRank.Jack, CardSuit.Clubs),
+        new Card(CardRank.Jack, CardSuit.Spades),
+        new Card(CardRank.Four, CardSuit.Hearts) 
+      };
+      return new PokerHand(playerName, cards);
+    }
+
+    public static PokerHand CreateFullHouseHand(string playerName) {
+      var cards = new List<Card> { 
+        new Card(CardRank.King, CardSuit.Diamonds),
+        new Card(CardRank.King, CardSuit.Hearts),
+        new Card(CardRank.Jack, CardSuit.Clubs),
+        new Card(CardRank.Jack, CardSuit.Spades),
+        new Card(CardRank.Jack, CardSuit.Hearts) 
+      };
+      return new PokerHand(playerName, cards);
     }
   }
    
