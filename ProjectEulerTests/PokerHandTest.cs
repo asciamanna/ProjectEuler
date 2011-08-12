@@ -10,48 +10,32 @@ namespace ProjectEulerTests {
   public class PokerHandTest {
     [Test]
     public void IsRoyalFlush() {
-      var hand = CreateRoyalFlushHand("Timmay");
+      var hand = PokerHandTestHelper.CreateRoyalFlushHand("Timmay");
       Assert.IsTrue(hand.IsRoyalFlush());
     }
 
     [Test]
     public void IsRoyalFlush_Fails() {
-      var hand = CreateOnePairHand("Fester");
+      var hand = PokerHandTestHelper.CreateOnePairHand("Fester");
       Assert.IsFalse(hand.IsRoyalFlush());
     }
 
     [Test]
     public void HighCard() {
-      var hand = CreateOnePairHand("Itt");
+      var hand = PokerHandTestHelper.CreateOnePairHand("Itt");
       Assert.AreEqual(CardRank.King, hand.HighCard);
     }
 
-    //TODO: Four of A Kind test
     [Test]
     public void FourOfAKind() {
-
+      var hand = PokerHandTestHelper.CreateFourOfAKindHand("Kevin");
+      Assert.IsTrue(hand.IsFourOfAKind());
     }
 
-    PokerHand CreateRoyalFlushHand(string playerName) {
-      var cards = new List<Card> { 
-        new Card(CardRank.Ten, CardSuit.Clubs),
-        new Card(CardRank.Jack, CardSuit.Clubs),
-        new Card(CardRank.Queen, CardSuit.Clubs),
-        new Card(CardRank.Ace, CardSuit.Clubs),
-        new Card(CardRank.King, CardSuit.Clubs) 
-      };
-      return new PokerHand(playerName, cards);
-    }
-
-    PokerHand CreateOnePairHand(string playerName) {
-      var cards = new List<Card> { 
-        new Card(CardRank.Five, CardSuit.Diamonds),
-        new Card(CardRank.Jack, CardSuit.Hearts),
-        new Card(CardRank.Six, CardSuit.Clubs),
-        new Card(CardRank.Five, CardSuit.Spades),
-        new Card(CardRank.King, CardSuit.Clubs) 
-      };
-      return new PokerHand(playerName, cards);
+    //TODO: Left Off Here
+    [Test]
+    public void ThreeOfAKind() {
+      var hand = PokerHandTestHelper.CreateThreeOfAKindHand("Lily");
     }
   }
 }

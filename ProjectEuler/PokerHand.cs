@@ -21,7 +21,6 @@ namespace ProjectEuler {
     public IEnumerable<Card> Cards { get; private set; }
 
     void BuildRankSet() {
-      var rankSet = new HashSet<CardRank>();
       foreach (var rank in Cards.Select(c => c.Rank)) {
         rankSet.Add(rank);
       }

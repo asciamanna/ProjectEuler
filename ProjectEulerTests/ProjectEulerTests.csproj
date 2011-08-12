@@ -54,6 +54,7 @@
     <Compile Include="PandigitalsTest.cs" />
     <Compile Include="PermutationsTest.cs" />
     <Compile Include="PokerHandTest.cs" />
+    <Compile Include="PokerHandTestHelper.cs" />
     <Compile Include="PrimeGeneratorTest.cs" />
     <Compile Include="Problem10Test.cs" />
     <Compile Include="Problem11Test.cs" />
