@@ -11,7 +11,6 @@ namespace ProjectEuler {
     List<CardRank> RanksOfPairs = new List<CardRank>();
     CardRank? RankForThreeOfAKind;
     CardRank? RankForFourOfAKind;
-    CardRank HighCardRank;
 
     public HandAnalyzer(PokerHand hand1, PokerHand hand2) {
       this.hand1 = hand1;

@@ -20,6 +20,18 @@ namespace ProjectEulerTests {
       Assert.IsFalse(hand.IsRoyalFlush());
     }
 
+    [Test]
+    public void HighCard() {
+      var hand = CreateOnePairHand("Itt");
+      Assert.AreEqual(CardRank.King, hand.HighCard);
+    }
+
+    //TODO: Four of A Kind test
+    [Test]
+    public void FourOfAKind() {
+
+    }
+
     PokerHand CreateRoyalFlushHand(string playerName) {
       var cards = new List<Card> { 
         new Card(CardRank.Ten, CardSuit.Clubs),
