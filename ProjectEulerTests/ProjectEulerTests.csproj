@@ -50,7 +50,7 @@
     <Compile Include="ExtensionMethodsTest.cs" />
     <Compile Include="FactorsTest.cs" />
     <Compile Include="FractionTest.cs" />
-    <Compile Include="HandAnalyzerTest.cs" />
+    <Compile Include="PokerGameTest.cs" />
     <Compile Include="PandigitalsTest.cs" />
     <Compile Include="PermutationsTest.cs" />
     <Compile Include="PokerHandTest.cs" />

@@ -27,6 +27,12 @@ namespace ProjectEulerTests {
     }
 
     [Test]
+    public void SecondHighCard() {
+      var hand = PokerHandTestHelper.CreateOnePairHand("Itt");
+      Assert.AreEqual(CardRank.Jack, hand.SecondHighCard);
+    }
+
+    [Test]
     public void FourOfAKind() {
       var hand = PokerHandTestHelper.CreateFourOfAKindHand("Kevin");
       Assert.IsTrue(hand.IsFourOfAKind());
@@ -52,6 +58,28 @@ namespace ProjectEulerTests {
       var hand = PokerHandTestHelper.CreateFullHouseHand("Lurch");
       Assert.IsTrue(hand.IsFullHouse());
       Assert.IsFalse(hand.IsThreeOfAKind());
+    }
+
+    [Test]
+    public void Flush() {
+      var hand = PokerHandTestHelper.CreateFlushHand("Ren");
+      Assert.IsTrue(hand.IsFlush());
+      Assert.IsFalse(hand.IsRoyalFlush());
+    }
+
+    [Test]
+    public void Straight() {
+      var hand = PokerHandTestHelper.CreateStraightHand("Stimpy");
+      Assert.IsTrue(hand.IsStraight());
+      Assert.IsFalse(hand.IsStraightFlush());
+    }
+
+    [Test]
+    public void StraightFlush() {
+      var hand = PokerHandTestHelper.CreateStraightFlushHand("Sven Hoek");
+      Assert.IsTrue(hand.IsStraight());
+      Assert.IsTrue(hand.IsStraightFlush());
+      Assert.IsFalse(hand.IsRoyalFlush());
     }
   }
 }

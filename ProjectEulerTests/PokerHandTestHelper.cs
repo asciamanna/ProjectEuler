@@ -72,6 +72,39 @@ namespace ProjectEulerTests {
       };
       return new PokerHand(playerName, cards);
     }
+
+    public static PokerHand CreateFlushHand(string playerName) {
+      var cards = new List<Card> {
+        new Card(CardRank.Five, CardSuit.Diamonds),
+        new Card(CardRank.Eight, CardSuit.Diamonds),
+        new Card(CardRank.Two, CardSuit.Diamonds),
+        new Card(CardRank.King, CardSuit.Diamonds),
+        new Card(CardRank.Seven, CardSuit.Diamonds)
+      };
+      return new PokerHand(playerName, cards);
+    }
+
+    public static PokerHand CreateStraightHand(string playerName) {
+      var cards = new List<Card> {
+        new Card(CardRank.Five, CardSuit.Clubs),
+        new Card(CardRank.Six, CardSuit.Diamonds),
+        new Card(CardRank.Eight, CardSuit.Hearts),
+        new Card(CardRank.Nine, CardSuit.Spades),
+        new Card(CardRank.Seven, CardSuit.Spades)
+      };
+      return new PokerHand(playerName, cards);
+    }
+
+    public static PokerHand CreateStraightFlushHand(string playerName) {
+      var cards = new List<Card> {
+        new Card(CardRank.Five, CardSuit.Clubs),
+        new Card(CardRank.Six, CardSuit.Clubs),
+        new Card(CardRank.Eight, CardSuit.Clubs),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Seven, CardSuit.Clubs)
+      };
+      return new PokerHand(playerName, cards);
+    }
   }
    
 }

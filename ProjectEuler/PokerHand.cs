@@ -71,6 +71,12 @@ namespace ProjectEuler {
       }
     }
 
+    public CardRank SecondHighCard {
+      get {
+        return Cards.Select(c => c.Rank).OrderByDescending(cr => (int)cr).ToList()[1];
+      }
+    }
+
     public bool IsThreeOfAKind() {
       return rankLookup.Count == 3 && rankLookup.Values.Max(v => v == 3);
     }
@@ -81,6 +87,32 @@ namespace ProjectEuler {
 
     public bool IsFullHouse() {
       return rankLookup.Count == 2 && rankLookup.Values.Max(v => v == 3);
+    }
+
+    public bool IsFlush() {
+      return AllCardsSameSuit && !IsRoyalFlush();
+    }
+
+    public bool IsStraight() {
+      var lowestRank = rankLookup.Keys.Min();
+      var range = Enumerable.Range(1, 4);
+      var currentRank = (int)lowestRank;
+      foreach (var index in range) {
+        if (!rankLookup.ContainsKey((CardRank)currentRank + index)) return false;
+      }
+      return true; 
+    }
+
+    public bool IsStraightFlush() {
+      //can't use AllCardsSameSuit this would return true for Royal Flushes
+      return IsStraight() && IsFlush();
+    }
+
+    //TODO: implement this.
+    public CardRank HighCardOfRank {
+      get {
+        throw new NotImplementedException();
+      }
     }
   }
 }

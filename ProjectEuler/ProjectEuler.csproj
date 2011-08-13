@@ -58,7 +58,7 @@
     <Compile Include="Factors.cs" />
     <Compile Include="FibonacciSequence.cs" />
     <Compile Include="Fraction.cs" />
-    <Compile Include="HandAnalyzer.cs" />
+    <Compile Include="PokerGame.cs" />
     <Compile Include="HandResult.cs" />
     <Compile Include="Pandigitals.cs" />
     <Compile Include="Permutations.cs" />
