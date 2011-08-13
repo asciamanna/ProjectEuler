@@ -105,6 +105,28 @@ namespace ProjectEulerTests {
       };
       return new PokerHand(playerName, cards);
     }
+
+    public static PokerHand CreateStraightFlushHandHighRank10(string playerName) {
+      var cards = new List<Card> {
+        new Card(CardRank.Ten, CardSuit.Clubs),
+        new Card(CardRank.Six, CardSuit.Clubs),
+        new Card(CardRank.Eight, CardSuit.Clubs),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Seven, CardSuit.Clubs)
+      };
+      return new PokerHand(playerName, cards);
+    }
+
+    public static PokerHand CreateStraightFlushHandHighRankJack(string playerName) {
+      var cards = new List<Card> {
+        new Card(CardRank.Ten, CardSuit.Clubs),
+        new Card(CardRank.Jack, CardSuit.Clubs),
+        new Card(CardRank.Eight, CardSuit.Clubs),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Seven, CardSuit.Clubs)
+      };
+      return new PokerHand(playerName, cards);
+    }
   }
    
 }

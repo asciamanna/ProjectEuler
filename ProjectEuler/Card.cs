@@ -80,6 +80,7 @@ namespace ProjectEuler {
   }
 
   public enum CardRank {
+    Undefined = 0,
     Two = 2,
     Three = 3,
     Four = 4,

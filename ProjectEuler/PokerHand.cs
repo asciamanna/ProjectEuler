@@ -9,6 +9,7 @@ namespace ProjectEuler {
     //key: rank, value: number of occurrences in hand
     Dictionary<CardSuit, int> suitLookup;
     //key: suit, value: number of occurerences in hand
+    CardRank rankedHighCard = CardRank.Undefined;
 
     public PokerHand(string player, IEnumerable<Card> cards) {
       Player = player;
@@ -65,16 +66,9 @@ namespace ProjectEuler {
       return rankLookup.Count == 2;
     }
 
-    public CardRank HighCard {
-      get {
-        return Cards.Max(c => c.Rank);
-      }
-    }
-
-    public CardRank SecondHighCard {
-      get {
-        return Cards.Select(c => c.Rank).OrderByDescending(cr => (int)cr).ToList()[1];
-      }
+    public CardRank HighCard(int cardNumber) {
+      if (cardNumber < 1 || cardNumber > 5) throw new ArgumentException();
+      return Cards.Select(c => c.Rank).OrderByDescending(cr => (int)cr).ToList()[cardNumber - 1];
     }
 
     public bool IsThreeOfAKind() {
@@ -109,7 +103,7 @@ namespace ProjectEuler {
     }
 
     //TODO: implement this.
-    public CardRank HighCardOfRank {
+    public CardRank RankHighCard {
       get {
         throw new NotImplementedException();
       }

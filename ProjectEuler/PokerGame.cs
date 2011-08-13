@@ -17,9 +17,14 @@ namespace ProjectEuler {
       if (hand1.IsRoyalFlush()) return new HandResult(hand1.Player, HandRankResult.Royal_Flush);
       if (hand2.IsRoyalFlush()) return new HandResult(hand2.Player, HandRankResult.Royal_Flush);
 
+      if (hand1.IsStraightFlush() && hand2.IsStraightFlush()) {
+        
+      }
       if (hand1.IsStraightFlush()) return new HandResult(hand1.Player, HandRankResult.Straight_Flush);
       if (hand2.IsStraightFlush()) return new HandResult(hand2.Player, HandRankResult.Straight_Flush);
       return new HandResult("UGH", HandRankResult.High_Card);
     }
+
+   // HandResult DetermineWinningHand
   }
 }

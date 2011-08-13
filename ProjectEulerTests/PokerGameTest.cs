@@ -25,7 +25,15 @@ namespace ProjectEulerTests {
       Assert.AreEqual("Player1", result.WinningPlayer);
       Assert.AreEqual(HandRankResult.Straight_Flush, result.RankResult);
     }
-
+    //TODO: Determine Highest Rank
+    [Test]
+    public void BothPlayers_Straight_Flush_HighRank_Wins() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateStraightFlushHandHighRank10("Player1"),
+                                    PokerHandTestHelper.CreateStraightFlushHandHighRankJack("Player2"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual("Player2", result.WinningPlayer);
+      Assert.AreEqual(HandRankResult.Straight_Flush, result.RankResult);
+    }
     
   }
 }

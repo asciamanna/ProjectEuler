@@ -23,13 +23,13 @@ namespace ProjectEulerTests {
     [Test]
     public void HighCard() {
       var hand = PokerHandTestHelper.CreateOnePairHand("Itt");
-      Assert.AreEqual(CardRank.King, hand.HighCard);
+      Assert.AreEqual(CardRank.King, hand.HighCard(1));
     }
 
     [Test]
     public void SecondHighCard() {
       var hand = PokerHandTestHelper.CreateOnePairHand("Itt");
-      Assert.AreEqual(CardRank.Jack, hand.SecondHighCard);
+      Assert.AreEqual(CardRank.Jack, hand.HighCard(2));
     }
 
     [Test]
