@@ -10,6 +10,7 @@ namespace ProjectEuler {
     Dictionary<CardSuit, int> suitLookup;
     //key: suit, value: number of occurerences in hand
     CardRank rankedHighCard = CardRank.Undefined;
+    HandRankResult handResult = HandRankResult.Undefined;
 
     public PokerHand(string player, IEnumerable<Card> cards) {
       Player = player;
@@ -21,10 +22,9 @@ namespace ProjectEuler {
       BuildRankLookup();
       suitLookup = new Dictionary<CardSuit, int>();
       BuildSuitLookup();
+      DeterineHandRankings();
+      DetermineRankHighCard();
     }
-    public string Player { get; private set; }
-    
-    public IEnumerable<Card> Cards { get; private set; }
 
     void BuildRankLookup() {
       foreach (var rank in Cards.Select(c => c.Rank)) {
@@ -48,12 +48,63 @@ namespace ProjectEuler {
       }
     }
 
+    void DeterineHandRankings() {
+      if (IsRoyalFlush()) {
+        handResult = HandRankResult.Royal_Flush;
+      }
+      else if (IsStraightFlush()) {
+        handResult = HandRankResult.Straight_Flush;
+      }
+      else if (IsFourOfAKind()) {
+        handResult = HandRankResult.Four_Of_A_Kind;
+      }
+      else if (IsFullHouse()) {
+        handResult = HandRankResult.Full_House;
+      }
+      else if (IsFlush()) {
+        handResult = HandRankResult.Flush;
+      }
+      else if (IsStraight()) {
+        handResult = HandRankResult.Straight;
+      }
+      else if (IsThreeOfAKind()) {
+        handResult = HandRankResult.Three_Of_A_Kind;
+      }
+      else if (IsTwoPairs()) {
+        handResult = HandRankResult.Two_Pairs;
+      }
+      else if (IsOnePair()) {
+        handResult = HandRankResult.One_Pair;
+      }
+      else {
+        handResult = HandRankResult.High_Card;
+      }
+    }
+
+    //TODO: Finish the method to detemrine rank high card.
+    //TODO: Make all Is* methods private.
+    //TODO: all places that call Is* methods to use HandResultProperty.
+    //TODO: continue writing poker game tests to flesh out rest of game.
+    void DetermineRankHighCard() {
+    //  switch (handResult) {
+    //    case HandRankResult.Royal_Flush:
+    //      rankedHighCard = CardRank.Ace;
+    //      break;
+    //    case HandRankResult.Straight_Flush:
+    //      rankedHighCard = rankLookup
+    //  }
+    }
+
+    public string Player { get; private set; }
+
+    public IEnumerable<Card> Cards { get; private set; }
+
     public bool IsRoyalFlush() {
       return Cards.Any(c => c.Rank == CardRank.Ten) &&
           Cards.Any(c => c.Rank == CardRank.Jack) &&
           Cards.Any(c => c.Rank == CardRank.Queen) &&
           Cards.Any(c => c.Rank == CardRank.King) &&
-          Cards.Any(c => c.Rank == CardRank.Ace) && AllCardsSameSuit; 
+          Cards.Any(c => c.Rank == CardRank.Ace) && AllCardsSameSuit;
     }
 
     bool AllCardsSameSuit {
@@ -66,7 +117,7 @@ namespace ProjectEuler {
       return rankLookup.Count == 2;
     }
 
-    public CardRank HighCard(int cardNumber) {
+    public CardRank HandHighCard(int cardNumber) {
       if (cardNumber < 1 || cardNumber > 5) throw new ArgumentException();
       return Cards.Select(c => c.Rank).OrderByDescending(cr => (int)cr).ToList()[cardNumber - 1];
     }
@@ -77,6 +128,10 @@ namespace ProjectEuler {
 
     public bool IsTwoPairs() {
       return rankLookup.Count == 3 && rankLookup.Values.Max(v => v == 2);
+    }
+
+    public bool IsOnePair() {
+      return rankLookup.Count == 4 && rankLookup.Values.Max(v => v == 2);
     }
 
     public bool IsFullHouse() {
@@ -94,19 +149,35 @@ namespace ProjectEuler {
       foreach (var index in range) {
         if (!rankLookup.ContainsKey((CardRank)currentRank + index)) return false;
       }
-      return true; 
+      rankedHighCard = rankLookup.Keys.Max();
+      return true;
     }
 
     public bool IsStraightFlush() {
       //can't use AllCardsSameSuit this would return true for Royal Flushes
-      return IsStraight() && IsFlush();
+      if (IsStraight() && IsFlush()) {
+        rankedHighCard = rankLookup.Keys.Max();
+        return true;
+      }
+      return false;
     }
 
-    //TODO: implement this.
     public CardRank RankHighCard {
       get {
-        throw new NotImplementedException();
+        return rankedHighCard;
       }
+    }
+
+    public HandRankResult HandResult {
+      get {
+        return handResult;
+      }
+    }
+
+    void GetRankedHighCardFourOfAKind() {
+      var ranks = rankLookup.Keys.ToList();
+      if (rankLookup[ranks[0]] == 4) rankedHighCard = ranks[0];
+      else rankedHighCard = ranks[1];
     }
   }
 }

@@ -23,13 +23,13 @@ namespace ProjectEulerTests {
     [Test]
     public void HighCard() {
       var hand = PokerHandTestHelper.CreateOnePairHand("Itt");
-      Assert.AreEqual(CardRank.King, hand.HighCard(1));
+      Assert.AreEqual(CardRank.King, hand.HandHighCard(1));
     }
 
     [Test]
     public void SecondHighCard() {
       var hand = PokerHandTestHelper.CreateOnePairHand("Itt");
-      Assert.AreEqual(CardRank.Jack, hand.HighCard(2));
+      Assert.AreEqual(CardRank.Jack, hand.HandHighCard(2));
     }
 
     [Test]
@@ -51,6 +51,14 @@ namespace ProjectEulerTests {
       var hand = PokerHandTestHelper.CreateTwoPairsHand("Thing");
       Assert.IsTrue(hand.IsTwoPairs());
       Assert.IsFalse(hand.IsThreeOfAKind());
+      Assert.IsFalse(hand.IsOnePair());
+    }
+
+    [Test]
+    public void OnePair() {
+      var hand = PokerHandTestHelper.CreateOnePairHand("WOOOOO");
+      Assert.IsTrue(hand.IsOnePair());
+      Assert.IsFalse(hand.IsTwoPairs());
     }
 
     [Test]
@@ -72,6 +80,7 @@ namespace ProjectEulerTests {
       var hand = PokerHandTestHelper.CreateStraightHand("Stimpy");
       Assert.IsTrue(hand.IsStraight());
       Assert.IsFalse(hand.IsStraightFlush());
+      Assert.AreEqual(CardRank.Nine, hand.RankHighCard);
     }
 
     [Test]
@@ -80,6 +89,7 @@ namespace ProjectEulerTests {
       Assert.IsTrue(hand.IsStraight());
       Assert.IsTrue(hand.IsStraightFlush());
       Assert.IsFalse(hand.IsRoyalFlush());
+      Assert.AreEqual(CardRank.Nine, hand.RankHighCard);
     }
   }
 }

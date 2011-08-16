@@ -17,10 +17,12 @@ namespace ProjectEuler {
   }
 
   public enum HandRankResult {
+    Undefined,
     High_Card,
     One_Pair,
     Two_Pairs,
     Three_Of_A_Kind,
+    Straight,
     Flush,
     Full_House,
     Four_Of_A_Kind,
