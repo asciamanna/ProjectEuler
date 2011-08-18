@@ -12,6 +12,7 @@ namespace ProjectEulerTests {
     public void IsRoyalFlush() {
       var hand = PokerHandTestHelper.CreateRoyalFlushHand("Timmay");
       Assert.IsTrue(hand.IsRoyalFlush());
+      Assert.AreEqual(CardRank.Ace, hand.RankHighCard);
     }
 
     [Test]
@@ -66,6 +67,7 @@ namespace ProjectEulerTests {
       var hand = PokerHandTestHelper.CreateFullHouseHand("Lurch");
       Assert.IsTrue(hand.IsFullHouse());
       Assert.IsFalse(hand.IsThreeOfAKind());
+      Assert.AreEqual(CardRank.Jack, hand.RankHighCard);
     }
 
     [Test]
@@ -73,6 +75,7 @@ namespace ProjectEulerTests {
       var hand = PokerHandTestHelper.CreateFlushHand("Ren");
       Assert.IsTrue(hand.IsFlush());
       Assert.IsFalse(hand.IsRoyalFlush());
+      Assert.AreEqual(CardRank.King, hand.RankHighCard);
     }
 
     [Test]

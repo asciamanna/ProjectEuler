@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace ProjectEuler {
+
   public class PokerHand {
     Dictionary<CardRank, int> rankLookup;
     //key: rank, value: number of occurrences in hand
@@ -35,6 +36,14 @@ namespace ProjectEuler {
           rankLookup.Add(rank, Cards.Count(c => c.Rank == rank));
         }
       }
+    }
+
+    Dictionary<int, CardRank> BuildRanksInHandLookup() {
+      var numberOfRanksInHand = new Dictionary<int, CardRank>();
+      foreach (var cardRank in Cards.Select(c => c.Rank)) {
+        numberOfRanksInHand.Add(Cards.Count(c => c.Rank == cardRank), cardRank);
+      }
+      return numberOfRanksInHand;
     }
 
     void BuildSuitLookup() {
@@ -86,13 +95,22 @@ namespace ProjectEuler {
     //TODO: all places that call Is* methods to use HandResultProperty.
     //TODO: continue writing poker game tests to flesh out rest of game.
     void DetermineRankHighCard() {
-    //  switch (handResult) {
-    //    case HandRankResult.Royal_Flush:
-    //      rankedHighCard = CardRank.Ace;
-    //      break;
-    //    case HandRankResult.Straight_Flush:
-    //      rankedHighCard = rankLookup
-    //  }
+      switch (handResult) {
+        case HandRankResult.Royal_Flush:
+          rankedHighCard = CardRank.Ace;
+          break;
+        case HandRankResult.Straight_Flush:
+        case HandRankResult.Straight:
+        case HandRankResult.Flush:
+          rankedHighCard = Cards.Select(c => c.Rank).Max();
+          break;
+        case HandRankResult.Full_House:
+          var numberOfRanksInHand = BuildRanksInHandLookup();
+          rankedHighCard = numberOfRanksInHand[3];
+          break;
+        default:
+          throw new NotImplementedException();
+      }
     }
 
     public string Player { get; private set; }
