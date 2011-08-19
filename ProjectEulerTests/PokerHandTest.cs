@@ -37,6 +37,7 @@ namespace ProjectEulerTests {
     public void FourOfAKind() {
       var hand = PokerHandTestHelper.CreateFourOfAKindHand("Kevin");
       Assert.IsTrue(hand.IsFourOfAKind());
+      Assert.AreEqual(CardRank.Five, hand.RankHighCard);
     }
 
     [Test]
@@ -45,6 +46,7 @@ namespace ProjectEulerTests {
       Assert.IsTrue(hand.IsThreeOfAKind());
       Assert.IsFalse(hand.IsTwoPairs());
       Assert.IsFalse(hand.IsFullHouse());
+      Assert.AreEqual(CardRank.Three, hand.RankHighCard);
     }
 
     [Test]

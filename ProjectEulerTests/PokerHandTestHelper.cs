@@ -28,7 +28,6 @@ namespace ProjectEulerTests {
       return new PokerHand(playerName, cards);
     }
 
-
     public static PokerHand CreateFourOfAKindHand(string playerName) {
       var cards = new List<Card> { 
         new Card(CardRank.Five, CardSuit.Diamonds),

@@ -40,7 +40,7 @@ namespace ProjectEuler {
 
     Dictionary<int, CardRank> BuildRanksInHandLookup() {
       var numberOfRanksInHand = new Dictionary<int, CardRank>();
-      foreach (var cardRank in Cards.Select(c => c.Rank)) {
+      foreach (var cardRank in Cards.Select(c => c.Rank).Distinct()) {
         numberOfRanksInHand.Add(Cards.Count(c => c.Rank == cardRank), cardRank);
       }
       return numberOfRanksInHand;
@@ -105,11 +105,19 @@ namespace ProjectEuler {
           rankedHighCard = Cards.Select(c => c.Rank).Max();
           break;
         case HandRankResult.Full_House:
+        case HandRankResult.Three_Of_A_Kind:
           var numberOfRanksInHand = BuildRanksInHandLookup();
           rankedHighCard = numberOfRanksInHand[3];
           break;
+        case HandRankResult.Four_Of_A_Kind:
+          var ranks = BuildRanksInHandLookup();
+          rankedHighCard = ranks[4];
+          break;
+        case HandRankResult.Two_Pairs:
+        case HandRankResult.One_Pair:
+        case HandRankResult.High_Card:
         default:
-          throw new NotImplementedException();
+          throw new ArgumentException("Unknown Hand Rank");
       }
     }
 
