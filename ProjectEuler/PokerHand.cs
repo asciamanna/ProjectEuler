@@ -106,19 +106,35 @@ namespace ProjectEuler {
           break;
         case HandRankResult.Full_House:
         case HandRankResult.Three_Of_A_Kind:
-          var numberOfRanksInHand = BuildRanksInHandLookup();
-          rankedHighCard = numberOfRanksInHand[3];
+          rankedHighCard = GetRankedHighCardForThreeOfAKind();
           break;
         case HandRankResult.Four_Of_A_Kind:
-          var ranks = BuildRanksInHandLookup();
-          rankedHighCard = ranks[4];
+          rankedHighCard = GetRankedHighCardForFourOfAKind();
           break;
         case HandRankResult.Two_Pairs:
+          rankedHighCard = GetRankedHighCardForTwoPairs();
+          break;
         case HandRankResult.One_Pair:
+          rankedHighCard = GetRankedHighCardForOnePair();
+          break;
         case HandRankResult.High_Card:
+          rankedHighCard = HandHighCard(1);
+          break;
         default:
           throw new ArgumentException("Unknown Hand Rank");
       }
+    }
+
+    CardRank GetRankedHighCardForOnePair() {
+      var grouping = from card in Cards
+                     group card by card.Rank;
+      return grouping.Where(g => g.Count() == 2).First().Key;
+    }
+
+    CardRank GetRankedHighCardForTwoPairs() {
+      var grouping = from card in Cards
+                     group card by card.Rank;
+      return grouping.Where(g => g.Count() == 2).Max(g => g.First().Rank);
     }
 
     public string Player { get; private set; }
@@ -140,7 +156,9 @@ namespace ProjectEuler {
     }
 
     public bool IsFourOfAKind() {
-      return rankLookup.Count == 2;
+      var grouping = from card in Cards
+                     group card by card.Rank;
+      return grouping.Where(g => g.Count() == 4).Count() == 1;
     }
 
     public CardRank HandHighCard(int cardNumber) {
@@ -200,10 +218,16 @@ namespace ProjectEuler {
       }
     }
 
-    void GetRankedHighCardFourOfAKind() {
-      var ranks = rankLookup.Keys.ToList();
-      if (rankLookup[ranks[0]] == 4) rankedHighCard = ranks[0];
-      else rankedHighCard = ranks[1];
+    CardRank GetRankedHighCardForThreeOfAKind() {
+      var grouping = from card in Cards
+                     group card by card.Rank;
+      return grouping.Where(g => g.Count() == 3).Select(g => g.Key).First();
+    }
+
+    CardRank GetRankedHighCardForFourOfAKind() {
+      var grouping = from card in Cards
+                     group card by card.Rank;
+      return grouping.Where(g => g.Count() == 4).Select(g => g.Key).First();
     }
   }
 }

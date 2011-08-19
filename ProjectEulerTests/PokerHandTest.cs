@@ -67,6 +67,7 @@ namespace ProjectEulerTests {
     [Test]
     public void FullHouse() {
       var hand = PokerHandTestHelper.CreateFullHouseHand("Lurch");
+      Assert.IsFalse(hand.IsFourOfAKind());
       Assert.IsTrue(hand.IsFullHouse());
       Assert.IsFalse(hand.IsThreeOfAKind());
       Assert.AreEqual(CardRank.Jack, hand.RankHighCard);
