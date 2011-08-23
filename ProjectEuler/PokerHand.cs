@@ -90,7 +90,6 @@ namespace ProjectEuler {
       }
     }
 
-    //TODO: Finish the method to detemrine rank high card.
     //TODO: Make all Is* methods private.
     //TODO: all places that call Is* methods to use HandResultProperty.
     //TODO: continue writing poker game tests to flesh out rest of game.

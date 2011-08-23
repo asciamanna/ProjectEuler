@@ -25,7 +25,7 @@ namespace ProjectEulerTests {
       Assert.AreEqual("Player1", result.WinningPlayer);
       Assert.AreEqual(HandRankResult.Straight_Flush, result.RankResult);
     }
-    //TODO: Determine Highest Rank
+    
     [Test]
     public void BothPlayers_Straight_Flush_HighRank_Wins() {
       var pokerGame = new PokerGame(PokerHandTestHelper.CreateStraightFlushHandHighRank10("Player1"),
@@ -33,6 +33,42 @@ namespace ProjectEulerTests {
       var result = pokerGame.PlayHand();
       Assert.AreEqual("Player2", result.WinningPlayer);
       Assert.AreEqual(HandRankResult.Straight_Flush, result.RankResult);
+    }
+
+    [Test]
+    public void FourOfAKind_Beats_Full_House() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateFourOfAKindHand("John"),
+                                    PokerHandTestHelper.CreateFullHouseHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.Four_Of_A_Kind, result.RankResult);
+      Assert.AreEqual("John", result.WinningPlayer);
+    }
+
+    [Test]
+    public void BothPlayers_Four_Of_A_Kind_HighRank_Wins() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateFourOfAKindFivesHand("John"),
+                                    PokerHandTestHelper.FourOfAKindJacksHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.Four_Of_A_Kind, result.RankResult);
+      Assert.AreEqual("Bob", result.WinningPlayer);
+    }
+
+    [Test]
+    public void FullHouse_Beats_Flush() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateFlushHand("John"),
+                                    PokerHandTestHelper.CreateFullHouseHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.Full_House, result.RankResult);
+      Assert.AreEqual("Bob", result.WinningPlayer);
+    }
+
+    [Test]
+    public void BothPlayers_Full_House_HighRank_Wins() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateFullHouse3Fives2NinesHand("John"),
+                                    PokerHandTestHelper.CreateFullHouse3Jacks2FoursHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.Full_House, result.RankResult);
+      Assert.AreEqual("Bob", result.WinningPlayer);
     }
     
   }

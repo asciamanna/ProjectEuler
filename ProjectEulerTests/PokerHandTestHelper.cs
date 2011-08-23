@@ -126,6 +126,50 @@ namespace ProjectEulerTests {
       };
       return new PokerHand(playerName, cards);
     }
+
+    internal static PokerHand CreateFourOfAKindFivesHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Five, CardSuit.Clubs),
+        new Card(CardRank.Five, CardSuit.Diamonds),
+        new Card(CardRank.Ten, CardSuit.Diamonds),
+        new Card(CardRank.Five, CardSuit.Hearts),
+        new Card(CardRank.Five, CardSuit.Spades)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand FourOfAKindJacksHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Jack, CardSuit.Clubs),
+        new Card(CardRank.Jack, CardSuit.Diamonds),
+        new Card(CardRank.Queen, CardSuit.Diamonds),
+        new Card(CardRank.Jack, CardSuit.Hearts),
+        new Card(CardRank.Jack, CardSuit.Spades)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateFullHouse3Fives2NinesHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Five, CardSuit.Clubs),
+        new Card(CardRank.Five, CardSuit.Hearts),
+        new Card(CardRank.Five, CardSuit.Diamonds),
+        new Card(CardRank.Nine, CardSuit.Hearts),
+        new Card(CardRank.Nine, CardSuit.Spades)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateFullHouse3Jacks2FoursHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Jack, CardSuit.Clubs),
+        new Card(CardRank.Jack, CardSuit.Hearts),
+        new Card(CardRank.Jack, CardSuit.Diamonds),
+        new Card(CardRank.Four, CardSuit.Hearts),
+        new Card(CardRank.Four, CardSuit.Spades)
+      };
+      return new PokerHand(p, cards);
+    }
   }
    
 }
