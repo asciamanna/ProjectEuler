@@ -70,6 +70,115 @@ namespace ProjectEulerTests {
       Assert.AreEqual(HandRankResult.Full_House, result.RankResult);
       Assert.AreEqual("Bob", result.WinningPlayer);
     }
-    
+
+
+    [Test]
+    public void Flush_Beats_Straight() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateStraightHand("John"),
+                                    PokerHandTestHelper.CreateFlushHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.Flush, result.RankResult);
+      Assert.AreEqual("Bob", result.WinningPlayer);
+    }
+
+    [Test]
+    public void BothPlayers_Flush_HighRank_Wins() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateFlushHighJackHand("John"),
+                                    PokerHandTestHelper.CreateFlushHighQueenHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.Flush, result.RankResult);
+      Assert.AreEqual("Bob", result.WinningPlayer);
+    }
+
+    [Test]
+    public void Straight_Beats_Three_Of_A_Kind() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateStraightHand("John"),
+                                    PokerHandTestHelper.CreateThreeOfAKindHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.Straight, result.RankResult);
+      Assert.AreEqual("John", result.WinningPlayer);
+    }
+
+    [Test]
+    public void BothPlayers_Straight_HighRank_Wins() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateStraightHighJackHand("John"),
+                                    PokerHandTestHelper.CreateStraightHighQueenHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.Straight, result.RankResult);
+      Assert.AreEqual("Bob", result.WinningPlayer);
+    }
+
+    [Test]
+    public void Three_Of_A_Kind_Beats_Two_Pairs() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateTwoPairsHand("John"),
+                                    PokerHandTestHelper.CreateThreeOfAKindHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.Three_Of_A_Kind, result.RankResult);
+      Assert.AreEqual("Bob", result.WinningPlayer);
+    }
+
+    [Test]
+    public void BothPlayers_Three_Of_A_Kind_HighRank_Wins() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateThreeOfAKindSevensHand("John"),
+                                    PokerHandTestHelper.CreateThreeOfAKindFoursHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.Three_Of_A_Kind, result.RankResult);
+      Assert.AreEqual("John", result.WinningPlayer);
+    }
+
+    [Test]
+    public void Two_Pairs_Beats_One_Pair() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateTwoPairsHand("John"),
+                                    PokerHandTestHelper.CreateOnePairHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.Two_Pairs, result.RankResult);
+      Assert.AreEqual("John", result.WinningPlayer);
+    }
+
+    [Test]
+    public void BothPlayers_Two_Pairs_HighRank_Wins() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateTwoPairsFivesSevensHand("John"),
+                                    PokerHandTestHelper.CreateTwoPairsSixesJacksHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.Two_Pairs, result.RankResult);
+      Assert.AreEqual("Bob", result.WinningPlayer);
+    }
+
+    [Test]
+    public void OnePair_Beats_HighCard() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateHighCardNineHand("John"),
+                                    PokerHandTestHelper.CreateOnePairHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.One_Pair, result.RankResult);
+      Assert.AreEqual("Bob", result.WinningPlayer);
+    }
+
+    [Test]
+    public void BothPlayers_One_Pair_HighRank_Wins() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateOnePairTensHand("John"),
+                                    PokerHandTestHelper.CreateOnePairAcesHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.One_Pair, result.RankResult);
+      Assert.AreEqual("Bob", result.WinningPlayer);
+    }
+
+    [Test]
+    public void First_High_Card_Wins() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateHighCardNineHand("John"),
+                                   PokerHandTestHelper.CreateHighCardAceHand("Bob"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.High_Card, result.RankResult);
+      Assert.AreEqual("Bob", result.WinningPlayer);
+    }
+
+    [Test]
+    public void Second_High_Card_Wins() {
+      var pokerGame = new PokerGame(PokerHandTestHelper.CreateHighCardNineSixHand("Bob"),
+                                   PokerHandTestHelper.CreateHighCardNineEightHand("John"));
+      var result = pokerGame.PlayHand();
+      Assert.AreEqual(HandRankResult.High_Card, result.RankResult);
+      Assert.AreEqual("John", result.WinningPlayer);
+    }
+
   }
 }

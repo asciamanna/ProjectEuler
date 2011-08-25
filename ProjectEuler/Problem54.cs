@@ -21,12 +21,15 @@ namespace ProjectEuler {
     }
 
     public override long Solve() {
+      int player1Wins = 0;
       for (int i = 0; i < player1Hands.Count; i++) {
         var winner = new PokerGame(player1Hands[i], player2Hands[i]).PlayHand();
-        Console.WriteLine("Winner of Hand {0}: {1} with {2}", i, winner, "Pair Of Nuts");
-
+       // Console.WriteLine("Winner of Hand {0}: {1} with {2}", i, winner, "Pair Of Nuts");
+        if (winner.WinningPlayer == "Player One") {
+          player1Wins++;
+        }
       }
-      return 0;
+      return player1Wins;
 
     }
   }

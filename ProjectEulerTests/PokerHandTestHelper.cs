@@ -170,6 +170,160 @@ namespace ProjectEulerTests {
       };
       return new PokerHand(p, cards);
     }
+
+    internal static PokerHand CreateFlushHighJackHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Jack, CardSuit.Clubs),
+        new Card(CardRank.Four, CardSuit.Clubs),
+        new Card(CardRank.Six, CardSuit.Clubs),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Two, CardSuit.Clubs)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateFlushHighQueenHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Jack, CardSuit.Spades),
+        new Card(CardRank.Four, CardSuit.Spades),
+        new Card(CardRank.Six, CardSuit.Spades),
+        new Card(CardRank.Nine, CardSuit.Spades),
+        new Card(CardRank.Queen, CardSuit.Spades)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateStraightHighJackHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Jack, CardSuit.Clubs),
+        new Card(CardRank.Ten, CardSuit.Diamonds),
+        new Card(CardRank.Eight, CardSuit.Spades),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Seven, CardSuit.Clubs)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateStraightHighQueenHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Jack, CardSuit.Clubs),
+        new Card(CardRank.Ten, CardSuit.Diamonds),
+        new Card(CardRank.Eight, CardSuit.Spades),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Queen, CardSuit.Clubs)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateThreeOfAKindSevensHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Seven, CardSuit.Clubs),
+        new Card(CardRank.Seven, CardSuit.Diamonds),
+        new Card(CardRank.Seven, CardSuit.Spades),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Queen, CardSuit.Clubs)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateThreeOfAKindFoursHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Four, CardSuit.Clubs),
+        new Card(CardRank.Four, CardSuit.Diamonds),
+        new Card(CardRank.Four, CardSuit.Spades),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Queen, CardSuit.Clubs)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateTwoPairsFivesSevensHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Five, CardSuit.Clubs),
+        new Card(CardRank.Five, CardSuit.Diamonds),
+        new Card(CardRank.Seven, CardSuit.Spades),
+        new Card(CardRank.Seven, CardSuit.Clubs),
+        new Card(CardRank.Queen, CardSuit.Clubs)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateTwoPairsSixesJacksHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Jack, CardSuit.Clubs),
+        new Card(CardRank.Jack, CardSuit.Diamonds),
+        new Card(CardRank.Seven, CardSuit.Spades),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Seven, CardSuit.Clubs)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateHighCardNineHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Two, CardSuit.Clubs),
+        new Card(CardRank.Three, CardSuit.Diamonds),
+        new Card(CardRank.Seven, CardSuit.Spades),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Six, CardSuit.Clubs)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateOnePairTensHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Ten, CardSuit.Clubs),
+        new Card(CardRank.Ten, CardSuit.Diamonds),
+        new Card(CardRank.Seven, CardSuit.Spades),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Six, CardSuit.Clubs)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateOnePairAcesHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Two, CardSuit.Clubs),
+        new Card(CardRank.Three, CardSuit.Diamonds),
+        new Card(CardRank.Ace, CardSuit.Spades),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Ace, CardSuit.Clubs)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateHighCardAceHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Two, CardSuit.Clubs),
+        new Card(CardRank.Three, CardSuit.Diamonds),
+        new Card(CardRank.Ace, CardSuit.Spades),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Six, CardSuit.Clubs)
+      };
+      return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateHighCardNineSixHand(string p) {
+       var cards = new List<Card> {
+        new Card(CardRank.Two, CardSuit.Clubs),
+        new Card(CardRank.Three, CardSuit.Diamonds),
+        new Card(CardRank.Five, CardSuit.Spades),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Six, CardSuit.Clubs)
+      };
+       return new PokerHand(p, cards);
+    }
+
+    internal static PokerHand CreateHighCardNineEightHand(string p) {
+      var cards = new List<Card> {
+        new Card(CardRank.Two, CardSuit.Clubs),
+        new Card(CardRank.Three, CardSuit.Diamonds),
+        new Card(CardRank.Five, CardSuit.Spades),
+        new Card(CardRank.Nine, CardSuit.Clubs),
+        new Card(CardRank.Eight, CardSuit.Clubs)
+      };
+      return new PokerHand(p, cards);
+    }
   }
    
 }
