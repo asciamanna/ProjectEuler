@@ -65,6 +65,12 @@ namespace ProjectEuler {
       return numberString == new String(numberString.Reverse().ToArray());
     }
 
+
+    public static bool IsPalindromic(this long number) {
+      var numberString = number.ToString();
+      return numberString == new String(numberString.Reverse().ToArray());
+    }
+
     public static bool IsPalindromic(this string number) {
       return number == new String(number.Reverse().ToArray());
     }
@@ -107,6 +113,10 @@ namespace ProjectEuler {
 
       decimal n = (decimal)((Sqrt(8 * number + 1) + 1) / 4);
       return n % 1 == 0;
+    }
+
+    public static long Reverse(this long number) {
+      return long.Parse(new String(number.ToString().Reverse().ToArray()));
     }
 
    // http://community.devexpress.com/blogs/paulk/archive/2010/08/14/really-really-big-numbers-with-biginteger-in-net-4-0.aspx
