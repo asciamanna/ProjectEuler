@@ -10,7 +10,7 @@ namespace ProjectEuler {
     List<PokerHand> player2Hands = new List<PokerHand>();
 
     public Problem54() {
-      var pokerHands = File.ReadAllLines("poker.txt");
+      var pokerHands = File.ReadAllLines(@".\Data\Problem54\poker.txt");
       foreach (var playableHand in pokerHands.ToList()) {
         var cards = playableHand.Split(' ').ToList();
         var player1Cards = cards.Take(5).Select(c => new Card(Card.GetRank(c[0]), Card.GetSuit(c[1])));
