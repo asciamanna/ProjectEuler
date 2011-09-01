@@ -6,12 +6,11 @@ using NUnit.Framework;
 using ProjectEuler;
 
 namespace ProjectEulerTests {
- [TestFixture]
- public class Problem55Test {
-   [Test]
-   public void Solve() {
-     Assert.AreEqual(249, new Problem55().Solve());
-   }
- }
-
+  [TestFixture]
+  class Problem56Test {
+    [Test]
+    public void Solve() {
+      Assert.AreEqual(972, new Problem56().Solve());
+    }
+  }
 }
