@@ -118,6 +118,10 @@ namespace ProjectEuler {
       return BigInteger.Parse(new String(number.ToString().Reverse().ToArray()));
     }
 
+    public static long NumberOfDigits(this BigInteger number) {
+      return number.ToString().Length;
+    }
+
    // http://community.devexpress.com/blogs/paulk/archive/2010/08/14/really-really-big-numbers-with-biginteger-in-net-4-0.aspx
    public static BigInteger Sqrt(BigInteger number) {
       // problem with lower numbers to to right bit shift
