@@ -6,6 +6,18 @@ using System.IO;
 
 namespace ProjectEuler {
   public class Problem59 : Problem {
+    long asciiSum = 0;
+    List<char> acceptableCharacters;
+
+    public Problem59() {
+      asciiSum = 0;
+      acceptableCharacters = new List<char>();
+      acceptableCharacters.AddRange(Enumerable.Range(32, 95).Select(i => Convert.ToChar(i)));
+      acceptableCharacters.Remove('%');
+      acceptableCharacters.Remove('`');
+      acceptableCharacters.Remove('~');
+    }
+
     public override long Solve() {
       //a 97 - z 122 
       const int keyLength = 3;
@@ -25,24 +37,20 @@ namespace ProjectEuler {
               }
             }
             if (TextIsEnglish(decryptedData)) {
-              foreach (var thing in decryptedData) {
-                Console.Write(Convert.ToChar(thing));
+              foreach (var asciiValue in decryptedData) {
+                asciiSum += asciiValue;
               }
-              Console.Write(Environment.NewLine);
-              Console.WriteLine("Key is: " + Convert.ToChar(a).ToString() + Convert.ToChar(b) + Convert.ToChar(c));
-              Console.ReadKey();
+              return asciiSum;
             }
           }
         }
       }
-
-
       return 0;
     }
 
     bool TextIsEnglish(List<int> decryptedData) {
       var decryptedText = decryptedData.Select(d => Convert.ToChar(d));
-      return decryptedText.All(dt => (dt >= 65 && dt <= 122) || dt == 32 || dt == 33 || dt == 46);
+      return decryptedText.All(dt => acceptableCharacters.Contains(dt));
     }
   }
 }
