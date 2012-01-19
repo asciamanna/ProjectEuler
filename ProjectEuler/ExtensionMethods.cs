@@ -86,6 +86,15 @@ namespace ProjectEuler {
       return letter - 64;
     }
 
+    public static bool IsTriangle(this long number) {
+      //http://en.wikipedia.org/wiki/Triangle_number
+      return (number % 3 == 0 || number % 9 == 1);
+    }
+
+    public static bool IsSquare(this long number) {
+      return Math.Sqrt(number) % 1 == 0;
+    }
+
     public static bool IsPentagonal(this long number) {
       //http://en.wikipedia.org/wiki/Pentagonal_number
 
@@ -98,6 +107,14 @@ namespace ProjectEuler {
 
       double n = (Math.Sqrt(8 * number + 1) + 1) / 4;
       return n % 1 == 0;
+    }
+
+    public static bool IsHeptagonal(this long number) {
+      return false;
+    }
+
+    public static bool IsOctagonal(this long number) {
+      return false;
     }
 
     public static bool IsPentagonal(this BigInteger number) {
