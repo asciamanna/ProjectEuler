@@ -46,5 +46,25 @@ namespace ProjectEulerTests {
       Assert.IsTrue(((long)40755).IsHexagonal());
       Assert.IsTrue(((long)1533776805).IsHexagonal());
     }
+
+    [Test]
+    public void IsTriangle() {
+      Assert.IsTrue(((long)1).IsTriangle());
+      Assert.IsTrue(((long)3).IsTriangle());
+      Assert.IsTrue(((long)6).IsTriangle());
+      Assert.IsTrue(((long)15).IsTriangle());
+      Assert.IsTrue(((long)21).IsTriangle());
+      Assert.IsFalse(((long)11).IsTriangle());
+    }
+
+    [Test]
+    public void IsSquare() {
+      Assert.IsTrue(((long)1).IsSquare());
+      Assert.IsTrue(((long)4).IsSquare());
+      Assert.IsTrue(((long)9).IsSquare());
+      Assert.IsTrue(((long)16).IsSquare());
+      Assert.IsTrue(((long)49).IsSquare());
+      Assert.IsFalse(((long)55).IsSquare());
+    }
   }
 }
