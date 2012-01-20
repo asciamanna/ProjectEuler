@@ -109,14 +109,6 @@ namespace ProjectEuler {
       return n % 1 == 0;
     }
 
-    public static bool IsHeptagonal(this long number) {
-      return false;
-    }
-
-    public static bool IsOctagonal(this long number) {
-      return false;
-    }
-
     public static bool IsPentagonal(this BigInteger number) {
       //http://en.wikipedia.org/wiki/Pentagonal_number
 
